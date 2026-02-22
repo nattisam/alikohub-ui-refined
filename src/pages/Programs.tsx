@@ -70,7 +70,7 @@ const Programs = () => {
               Four Pillars of <span className="text-gradient-amber">Youth Empowerment</span>
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              Integrated pathways in Digital Health, One Health, STEM, and entrepreneurship — designed to reach 50,000 youth across Africa.
+              Integrated pathways in Digital Health, One Health, STEM, and entrepreneurship, designed to reach 50,000 youth across Africa.
             </p>
           </motion.div>
 

@@ -15,7 +15,7 @@ const cards = [
   {
     icon: Lightbulb,
     title: "What Makes Us Different",
-    text: "A one-window resourcefulness ecosystem — not a traditional training center — where education, mentorship, capital, and opportunity converge.",
+    text: "A one-window resourcefulness ecosystem, not a traditional training center, where education, mentorship, capital, and opportunity converge.",
   },
   {
     icon: Globe,

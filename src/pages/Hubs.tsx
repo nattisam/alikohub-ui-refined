@@ -42,7 +42,7 @@ const Hubs = () => {
               Innovation Hubs Across <span className="text-gradient-amber">Africa</span>
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              10 regional hubs across the continent — human-centered spaces where youth learn, practice, innovate, and connect with real opportunity.
+              10 regional hubs across the continent: human-centered spaces where youth learn, practice, innovate, and connect with real opportunity.
             </p>
           </motion.div>
 

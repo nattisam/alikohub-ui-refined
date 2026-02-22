@@ -17,7 +17,7 @@ const revenueModels = [
   {
     icon: Briefcase,
     title: "Consulting Services",
-    description: "Technical expertise to industry, government, and development partners — creating a sustainable revenue stream aligned with sectoral needs.",
+    description: "Technical expertise to industry, government, and development partners, creating a sustainable revenue stream aligned with sectoral needs.",
   },
   {
     icon: BookOpen,
@@ -27,7 +27,7 @@ const revenueModels = [
   {
     icon: Users,
     title: "Alumni Network",
-    description: "Graduates contribute through mentorship, peer support, and financial contributions — strengthening community ownership and long-term continuity.",
+    description: "Graduates contribute through mentorship, peer support, and financial contributions, strengthening community ownership and long-term continuity.",
   },
   {
     icon: RefreshCw,
@@ -56,7 +56,7 @@ const Sustainability = () => {
               Sustainability <span className="text-gradient-amber">Plan</span>
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              A model designed to thrive beyond initial grant funding — ensuring long-term continuity, financial independence, and community-driven growth.
+              A model designed to thrive beyond initial grant funding, ensuring long-term continuity, financial independence, and community-driven growth.
             </p>
           </motion.div>
 

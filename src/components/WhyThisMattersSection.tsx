@@ -5,7 +5,7 @@ const reasons = [
   {
     icon: Users,
     title: "Youth Demographics",
-    text: "Africa's population exceeds 1.55 billion with 73% under age 35 — while youth in North America face growing challenges navigating competitive job markets.",
+    text: "Africa's population exceeds 1.55 billion with 73% under age 35, while youth in North America face growing challenges navigating competitive job markets.",
   },
   {
     icon: Zap,
@@ -36,7 +36,7 @@ export function WhyThisMattersSection() {
             Why This <span className="text-gradient-amber">Matters</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Africa stands at a defining moment with the world's youngest population — and the structural conditions now exist to turn that into a global advantage.
+            Africa stands at a defining moment with the world's youngest population, and the structural conditions now exist to turn that into a global advantage.
           </p>
         </motion.div>
 

@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 
 const differentiators = [
   { icon: BookOpen, text: "Learning and application linked directly to employment and enterprise" },
-  { icon: Users, text: "People and systems — youth, institutions, markets, and policy actors connected" },
+  { icon: Users, text: "People and systems: youth, institutions, markets, and policy actors connected" },
   { icon: Globe, text: "Local relevance with continental vision through regionally grounded hubs" },
-  { icon: Target, text: "Human values paired with measurable results — dignity with data and accountability" },
+  { icon: Target, text: "Human values paired with measurable results: dignity with data and accountability" },
   { icon: Lightbulb, text: "Aliko LMS hosting 30+ market-aligned courses designed with employer expectations" },
   { icon: Sparkles, text: "Global mentorship network spanning Africa, the United States, and Canada" },
 ];
@@ -53,7 +53,7 @@ const pillars = [
   {
     icon: GraduationCap,
     title: "Aliko Academy",
-    description: "Career-driven courses across Technology, Health, and STEM — delivering market-aligned training that evolves with labor market needs.",
+    description: "Career-driven courses across Technology, Health, and STEM, delivering market-aligned training that evolves with labor market needs.",
     bullets: ["AI, Machine Learning, Data Analytics, Cloud Computing", "Software Development, Databases, Testing", "Finance, Accounting, Design, Marketing", "Academic Preparation and Language Learning"],
   },
   {
@@ -117,7 +117,7 @@ const About = () => {
               AlikoHub is designed to unlock human potential where opportunity has historically been uneven. Rooted in dignity, compassion, and systems thinking, we bring together education, innovation, employment pathways, and partnerships to enable young people to thrive as contributors, leaders, and problem solvers.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              Established in 2025 as a sister company to Genshifter Technologies, AlikoHub operates at the intersection of Digital Health, One Health, STEM, and entrepreneurship. We do not view young people as beneficiaries — they are co-creators of Africa's future.
+              Established in 2025 as a sister company to Genshifter Technologies, AlikoHub operates at the intersection of Digital Health, One Health, STEM, and entrepreneurship. We do not view young people as beneficiaries. They are co-creators of Africa's future.
             </p>
           </motion.div>
         </div>
