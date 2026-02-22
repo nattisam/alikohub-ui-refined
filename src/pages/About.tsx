@@ -4,6 +4,15 @@ import { Footer } from "@/components/Footer";
 import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb, Landmark, Heart, Brain, Briefcase, GraduationCap, ArrowRight, Layers, Building2, CheckCircle2, Shield, Users2, Eye, MapPinned, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+const cardColors = [
+  { bg: "bg-[hsl(210,40%,88%)]", text: "text-[hsl(210,60%,25%)]", iconBg: "bg-[hsl(210,50%,78%)]" },
+  { bg: "bg-[hsl(20,80%,75%)]", text: "text-[hsl(20,60%,20%)]", iconBg: "bg-[hsl(20,70%,65%)]" },
+  { bg: "bg-[hsl(190,60%,78%)]", text: "text-[hsl(190,70%,20%)]", iconBg: "bg-[hsl(190,50%,68%)]" },
+  { bg: "bg-[hsl(40,85%,75%)]", text: "text-[hsl(30,70%,20%)]", iconBg: "bg-[hsl(40,75%,65%)]" },
+  { bg: "bg-[hsl(25,70%,82%)]", text: "text-[hsl(25,60%,22%)]", iconBg: "bg-[hsl(25,60%,72%)]" },
+  { bg: "bg-[hsl(210,50%,82%)]", text: "text-[hsl(210,60%,22%)]", iconBg: "bg-[hsl(210,45%,72%)]" },
+];
+
 const differentiators = [
   { icon: BookOpen, text: "Learning and application linked directly to employment and enterprise" },
   { icon: Users, text: "People and systems: youth, institutions, markets, and policy actors connected" },
@@ -135,7 +144,7 @@ const About = () => {
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
               Our Approach
             </span>
-            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               What Makes AlikoHub <span className="text-gradient-amber">Different</span>
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
@@ -144,22 +153,24 @@ const About = () => {
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {differentiators.map((item, i) => (
-              <motion.div
-                key={i}
-                className="group rounded-2xl border border-border/50 p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.02]"
-                style={{ background: "var(--gradient-card)" }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-              >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <item.icon className="h-6 w-6 text-primary" />
-                </div>
-                <p className="text-sm leading-relaxed text-muted-foreground">{item.text}</p>
-              </motion.div>
-            ))}
+            {differentiators.map((item, i) => {
+              const color = cardColors[i % cardColors.length];
+              return (
+                <motion.div
+                  key={i}
+                  className={`group rounded-2xl ${color.bg} p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                >
+                  <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl ${color.iconBg}`}>
+                    <item.icon className={`h-6 w-6 ${color.text}`} />
+                  </div>
+                  <p className={`text-sm leading-relaxed ${color.text} opacity-80`}>{item.text}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -190,37 +201,34 @@ const About = () => {
                 icon: Layers,
                 title: "One-Window Ecosystem",
                 description: "Single point of access to training, mentorship, incubation, and market linkages. No fragmented handoffs between programs.",
-                accent: "bg-accent/10 border-accent/30",
-                iconBg: "bg-accent/20 text-accent-foreground",
+                color: cardColors[0],
               },
               {
                 icon: Building2,
                 title: "Physical + Digital Infrastructure",
                 description: "10 regional hubs will provide physical presence while digital platforms enable scale and accessibility across geographies.",
-                accent: "bg-primary/5 border-primary/30",
-                iconBg: "bg-primary/15 text-primary",
+                color: cardColors[3],
               },
               {
                 icon: CheckCircle2,
                 title: "Outcome-Linked Design",
                 description: "Every program component will be designed backward from employment and enterprise outcomes. Training without placement will be considered failure.",
-                accent: "bg-accent/10 border-accent/30",
-                iconBg: "bg-accent/20 text-accent-foreground",
+                color: cardColors[2],
               },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
-                className={`rounded-2xl border p-8 shadow-sm hover:shadow-md transition-shadow duration-300 ${item.accent}`}
+                className={`rounded-2xl ${item.color.bg} p-8 shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-[1.02]`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12 }}
               >
-                <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl ${item.iconBg}`}>
-                  <item.icon className="h-7 w-7" />
+                <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl ${item.color.iconBg}`}>
+                  <item.icon className={`h-7 w-7 ${item.color.text}`} />
                 </div>
-                <h3 className="font-heading text-xl font-bold text-primary mb-3">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                <h3 className={`font-heading text-xl font-bold ${item.color.text} mb-3`}>{item.title}</h3>
+                <p className={`text-sm leading-relaxed ${item.color.text} opacity-75`}>{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -239,37 +247,39 @@ const About = () => {
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
               Our Programs
             </span>
-            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               Four Pillars of <span className="text-gradient-amber">Youth Empowerment</span>
             </h2>
           </motion.div>
 
           <div className="grid gap-8 lg:grid-cols-2">
-            {pillars.map((pillar, i) => (
-              <motion.div
-                key={pillar.title}
-                className="group rounded-2xl border border-border/50 p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.02]"
-                style={{ background: "var(--gradient-card)" }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <pillar.icon className="h-7 w-7 text-primary" />
-                </div>
-                <h3 className="font-heading text-2xl font-bold text-foreground">{pillar.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pillar.description}</p>
-                <ul className="mt-5 space-y-2">
-                  {pillar.bullets.map((b, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+            {pillars.map((pillar, i) => {
+              const color = cardColors[i % cardColors.length];
+              return (
+                <motion.div
+                  key={pillar.title}
+                  className={`group rounded-2xl ${color.bg} p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl ${color.iconBg}`}>
+                    <pillar.icon className={`h-7 w-7 ${color.text}`} />
+                  </div>
+                  <h3 className={`font-heading text-2xl font-bold ${color.text}`}>{pillar.title}</h3>
+                  <p className={`mt-3 text-sm leading-relaxed ${color.text} opacity-75`}>{pillar.description}</p>
+                  <ul className="mt-5 space-y-2">
+                    {pillar.bullets.map((b, j) => (
+                      <li key={j} className={`flex items-start gap-2 text-sm ${color.text} opacity-70`}>
+                        <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${color.iconBg}`} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -286,36 +296,38 @@ const About = () => {
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
               Our Journey
             </span>
-            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               Pathway to <span className="text-gradient-amber">Centers of Excellence</span>
             </h2>
           </motion.div>
 
           <div className="grid gap-8 lg:grid-cols-3">
-            {timeline.map((phase, i) => (
-              <motion.div
-                key={phase.phase}
-                className="relative rounded-2xl border border-border/50 p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)]"
-                style={{ background: "var(--gradient-card)" }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-              >
-                <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
-                  {phase.phase} · {phase.years}
-                </div>
-                <h3 className="font-heading text-xl font-bold text-foreground mb-4">{phase.title}</h3>
-                <ul className="space-y-2">
-                  {phase.items.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+            {timeline.map((phase, i) => {
+              const color = cardColors[i % cardColors.length];
+              return (
+                <motion.div
+                  key={phase.phase}
+                  className={`relative rounded-2xl ${color.bg} p-8 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                >
+                  <div className={`mb-2 inline-flex items-center gap-2 rounded-full ${color.iconBg} px-3 py-1 text-xs font-semibold ${color.text}`}>
+                    {phase.phase} · {phase.years}
+                  </div>
+                  <h3 className={`font-heading text-xl font-bold ${color.text} mb-4`}>{phase.title}</h3>
+                  <ul className="space-y-2">
+                    {phase.items.map((item, j) => (
+                      <li key={j} className={`flex items-start gap-2 text-sm ${color.text} opacity-75`}>
+                        <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${color.iconBg}`} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -332,29 +344,31 @@ const About = () => {
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
               Partnership Strategy
             </span>
-            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               Building Impact <span className="text-gradient-amber">Together</span>
             </h2>
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {partnerCategories.map((cat, i) => (
-              <motion.div
-                key={cat.title}
-                className="group rounded-2xl border border-border/50 p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.02]"
-                style={{ background: "var(--gradient-card)" }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <cat.icon className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="font-heading text-lg font-semibold text-foreground">{cat.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{cat.text}</p>
-              </motion.div>
-            ))}
+            {partnerCategories.map((cat, i) => {
+              const color = cardColors[i % cardColors.length];
+              return (
+                <motion.div
+                  key={cat.title}
+                  className={`group rounded-2xl ${color.bg} p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl ${color.iconBg}`}>
+                    <cat.icon className={`h-6 w-6 ${color.text}`} />
+                  </div>
+                  <h3 className={`font-heading text-lg font-semibold ${color.text}`}>{cat.title}</h3>
+                  <p className={`mt-2 text-sm leading-relaxed ${color.text} opacity-75`}>{cat.text}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -363,42 +377,41 @@ const About = () => {
       <section className="py-24 lg:py-32 bg-card/50">
         <div className="container mx-auto px-6">
           <motion.div
-            className="mx-auto max-w-2xl rounded-2xl border border-border/50 p-8 lg:p-10 shadow-sm"
-            style={{ background: "var(--gradient-card)" }}
+            className="mx-auto max-w-2xl rounded-2xl bg-[hsl(210,40%,88%)] p-8 lg:p-10 shadow-sm"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
             <div className="mb-8 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15 text-accent-foreground">
-                <Shield className="h-5 w-5" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[hsl(210,50%,78%)]">
+                <Shield className="h-5 w-5 text-[hsl(210,60%,25%)]" />
               </div>
-              <h2 className="font-heading text-2xl font-bold text-foreground">Governance Philosophy</h2>
+              <h2 className="font-heading text-2xl font-bold text-[hsl(210,60%,25%)]">Governance Philosophy</h2>
             </div>
 
             <div className="space-y-6">
               {[
                 {
                   icon: Users2,
-                  color: "bg-primary/15 text-primary",
+                  color: cardColors[0],
                   title: "Multi-Stakeholder Governance",
                   text: "The board will include representation from government, development partners, private sector, academia, and youth constituencies.",
                 },
                 {
                   icon: Eye,
-                  color: "bg-primary/10 text-primary",
+                  color: cardColors[1],
                   title: "Transparency & Accountability",
                   text: "Annual audited financials, public impact reports, and independent evaluations will be published openly.",
                 },
                 {
                   icon: MapPinned,
-                  color: "bg-accent/15 text-accent-foreground",
+                  color: cardColors[2],
                   title: "Local Ownership",
                   text: "Regional hubs will be governed by local advisory committees with authority over contextual adaptation.",
                 },
                 {
                   icon: Star,
-                  color: "bg-accent/15 text-accent-foreground",
+                  color: cardColors[3],
                   title: "Youth Voice",
                   text: "Youth representatives will serve on governance bodies at all levels, from hub committees to central board.",
                 },
@@ -411,12 +424,12 @@ const About = () => {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${item.color}`}>
-                    <item.icon className="h-5 w-5" />
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${item.color.iconBg}`}>
+                    <item.icon className={`h-5 w-5 ${item.color.text}`} />
                   </div>
                   <div>
-                    <h3 className="font-heading text-base font-bold text-primary">{item.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                    <h3 className="font-heading text-base font-bold text-[hsl(210,60%,25%)]">{item.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-[hsl(210,60%,25%)] opacity-75">{item.text}</p>
                   </div>
                 </motion.div>
               ))}
@@ -437,28 +450,30 @@ const About = () => {
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
               Sustainability
             </span>
-            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
               Revenue <span className="text-gradient-amber">Model</span>
             </h2>
           </motion.div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {revenueModels.map((model, i) => (
-              <motion.div
-                key={model}
-                className="group flex items-center gap-4 rounded-2xl border border-border/50 p-5 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)]"
-                style={{ background: "var(--gradient-card)" }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary">
-                  {i + 1}
-                </div>
-                <span className="text-sm font-medium text-muted-foreground">{model}</span>
-              </motion.div>
-            ))}
+            {revenueModels.map((model, i) => {
+              const color = cardColors[i % cardColors.length];
+              return (
+                <motion.div
+                  key={model}
+                  className={`group flex items-center gap-4 rounded-2xl ${color.bg} p-5 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                >
+                  <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${color.iconBg} text-sm font-bold ${color.text}`}>
+                    {i + 1}
+                  </div>
+                  <span className={`text-sm font-medium ${color.text}`}>{model}</span>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -467,16 +482,15 @@ const About = () => {
       <section className="py-24 lg:py-32">
         <div className="container mx-auto px-6">
           <motion.div
-            className="rounded-3xl border border-border/50 p-12 lg:p-20 text-center"
-            style={{ background: "var(--gradient-card)" }}
+            className="rounded-3xl bg-[hsl(40,85%,75%)] p-12 lg:p-20 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
-              Ready to <span className="text-gradient-amber">Partner?</span>
+            <h2 className="font-heading text-3xl font-bold text-[hsl(30,70%,20%)] sm:text-4xl lg:text-5xl">
+              Ready to Partner?
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-xl text-lg text-[hsl(30,70%,20%)] opacity-80">
               Join us in building Africa's largest youth empowerment ecosystem.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -486,7 +500,7 @@ const About = () => {
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-border text-foreground hover:bg-secondary" asChild>
+              <Button size="lg" variant="outline" className="border-[hsl(30,70%,20%)]/30 text-[hsl(30,70%,20%)] hover:bg-[hsl(40,85%,70%)]" asChild>
                 <a href="https://alikohub-pitch.lovable.app/" target="_blank" rel="noopener noreferrer">
                   View Full Pitch
                 </a>
