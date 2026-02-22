@@ -22,6 +22,11 @@ import partnerConshifter from "@/assets/partner-conshifter.png";
 import partnerWefta from "@/assets/partner-wefta.png";
 import partnerKindred from "@/assets/partner-kindred.png";
 
+import partnerInvestorBg from "@/assets/partner-investor.jpg";
+import partnerImplementerBg from "@/assets/partner-implementer.jpg";
+import partnerGovernmentBg from "@/assets/partner-government.jpg";
+import partnerVentureBg from "@/assets/partner-venture.jpg";
+
 const ourPartners = [
   { name: "GenShifter Technologies", logo: partnerGenshifter },
   { name: "Alikore", logo: partnerAlikore },
@@ -34,30 +39,22 @@ const options = [
   {
     icon: Building2,
     title: "Partner as Investor",
-    description:
-      "Provide investment capital or contract funding to support program implementation and scale.",
-    audience: "Foundations, DFIs, Impact Investors, Development Partners",
+    image: partnerInvestorBg,
   },
   {
     icon: Users2,
     title: "Partner as Implementer",
-    description:
-      "Collaborate on program delivery, provide technical assistance, or co-create training content.",
-    audience: "Development Organizations, Technical Partners, Training Institutions",
+    image: partnerImplementerBg,
   },
   {
     icon: Globe,
     title: "Partner as Government",
-    description:
-      "Align with national policy, co-invest in infrastructure, or integrate with public systems.",
-    audience: "Ministries, Government Agencies, Regional Bodies",
+    image: partnerGovernmentBg,
   },
   {
     icon: Briefcase,
     title: "Partner as Our Next Venture",
-    description:
-      "Employ, train, and mentor our youth. Be part of our workforce pipeline and help shape the next generation of innovators.",
-    audience: "Employers, Corporates, Startups, Industry Leaders",
+    image: partnerVentureBg,
   },
 ];
 
@@ -127,22 +124,30 @@ const Partnership = () => {
       {/* Cards */}
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-6">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2">
             {options.map((opt, i) => (
               <motion.div
                 key={opt.title}
-                className="group flex flex-col items-center gap-4 rounded-2xl border border-border/60 bg-card p-8 text-center shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/30 hover:scale-[1.02]"
+                className="group relative overflow-hidden rounded-2xl border border-border/60 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-primary/30 hover:scale-[1.01] h-56"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
-                  <opt.icon className="h-7 w-7" />
+                <img
+                  src={opt.image}
+                  alt={opt.title}
+                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                <div className="relative flex h-full flex-col items-start justify-end p-6">
+                  <div className="mb-2 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/90 text-primary-foreground">
+                    <opt.icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-heading text-lg font-bold text-white">
+                    {opt.title}
+                  </h3>
                 </div>
-                <h3 className="font-heading text-base font-bold text-foreground leading-tight">
-                  {opt.title}
-                </h3>
               </motion.div>
             ))}
           </div>
