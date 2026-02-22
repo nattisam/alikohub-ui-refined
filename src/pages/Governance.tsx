@@ -33,7 +33,7 @@ const Governance = () => {
               Governance & <span className="text-gradient-amber">Implementation</span>
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              Accountability, transparency, and effective coordination across all ten hub countries — combining centralized leadership with strong local ownership.
+              Accountability, transparency, and effective coordination across all ten hub countries, combining centralized leadership with strong local ownership.
             </p>
           </motion.div>
 

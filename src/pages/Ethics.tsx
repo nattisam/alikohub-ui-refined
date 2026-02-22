@@ -7,7 +7,7 @@ const principles = [
   {
     icon: Heart,
     title: "Respect for Learners",
-    description: "All participants are treated with dignity and fairness, with particular attention to the needs of young people from underserved communities. Equitable access to training, support services, and employment — no learner excluded based on gender, socioeconomic background, disability, or location.",
+    description: "All participants are treated with dignity and fairness, with particular attention to the needs of young people from underserved communities. Equitable access to training, support services, and employment. No learner excluded based on gender, socioeconomic background, disability, or location.",
   },
   {
     icon: ShieldCheck,

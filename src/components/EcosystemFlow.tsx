@@ -41,7 +41,7 @@ export function EcosystemFlow() {
             The Resourcefulness <span className="text-gradient-amber">Ecosystem</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            A four-part journey from learning to leadership — integrated, human-centered, and designed for scale.
+            A four-part journey from learning to leadership, integrated, human-centered, and designed for scale.
           </p>
         </motion.div>
 

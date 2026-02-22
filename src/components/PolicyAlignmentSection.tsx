@@ -7,14 +7,14 @@ const alignments = [
     badge: "2063",
     title: "AU Agenda 2063",
     subtitle: "The Africa We Want",
-    text: "Direct contribution to Aspirations 1, 2, and 6 — focusing on prosperity, integration, and people-driven development with youth at the center.",
+    text: "Direct contribution to Aspirations 1, 2, and 6, focusing on prosperity, integration, and people-driven development with youth at the center.",
   },
   {
     icon: Globe2,
     badge: "SDGs",
     title: "UN Sustainable Development Goals",
     subtitle: "Global Framework Alignment",
-    text: "Fully aligned with SDGs 3, 4, 5, 8, 9, 13, and 17 — strengthening institutional capacity and building sustainable partnerships.",
+    text: "Fully aligned with SDGs 3, 4, 5, 8, 9, 13, and 17, strengthening institutional capacity and building sustainable partnerships.",
     sdgs: [3, 4, 5, 8, 9, 13, 17],
   },
 ];

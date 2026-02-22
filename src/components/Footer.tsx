@@ -22,7 +22,7 @@ export function Footer() {
               </span>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Honoring youth potential where opportunity meets dignity — transforming Africa's future through Digital Health, STEM, and innovation pathways.
+              Honoring youth potential where opportunity meets dignity, transforming Africa's future through Digital Health, STEM, and innovation pathways.
             </p>
             <div className="mt-6 space-y-2 text-sm text-muted-foreground">
               <a href="mailto:info@alikohub.com" className="flex items-center gap-2 hover:text-primary transition-colors">

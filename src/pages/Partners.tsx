@@ -7,37 +7,37 @@ const categories = [
   {
     icon: Landmark,
     title: "Government Ministries & Agencies",
-    description: "Policy alignment, accreditation, and national rollout support — providing legitimacy, scale, and integration with national strategies.",
+    description: "Policy alignment, accreditation, and national rollout support, providing legitimacy, scale, and integration with national strategies.",
   },
   {
     icon: Building2,
     title: "Private Sector Companies",
-    description: "Mentorship, internships, job placement, and innovation challenges — creating employment pathways, industry relevance, and co-financing.",
+    description: "Mentorship, internships, job placement, and innovation challenges, creating employment pathways, industry relevance, and co-financing.",
   },
   {
     icon: GraduationCap,
     title: "Academic & Training Institutions",
-    description: "Curriculum co-development, certification, and research collaboration — ensuring quality assurance, academic rigor, and global recognition.",
+    description: "Curriculum co-development, certification, and research collaboration, ensuring quality assurance, academic rigor, and global recognition.",
   },
   {
     icon: Globe,
     title: "Development Partners & Donors",
-    description: "Funding, technical assistance, and global networks — enabling resource mobilization, innovation, and MEL strengthening.",
+    description: "Funding, technical assistance, and global networks, enabling resource mobilization, innovation, and MEL strengthening.",
   },
   {
     icon: Users,
     title: "Community-Based Organizations",
-    description: "Youth outreach, local mobilization, and inclusion of marginalized groups — building trust, retention, and Leave No One Behind implementation.",
+    description: "Youth outreach, local mobilization, and inclusion of marginalized groups, building trust, retention, and Leave No One Behind implementation.",
   },
   {
     icon: HeartHandshake,
     title: "Global Health & One Health Networks",
-    description: "Technical expertise, research, and cross-border collaboration — integrating climate resilience, zoonotic risks, and global best practices.",
+    description: "Technical expertise, research, and cross-border collaboration, integrating climate resilience, zoonotic risks, and global best practices.",
   },
   {
     icon: Lightbulb,
     title: "Entrepreneurship & Innovation Ecosystem",
-    description: "Incubation, acceleration, and venture support — enabling startup growth, investment readiness, and reinvestment pathways.",
+    description: "Incubation, acceleration, and venture support, enabling startup growth, investment readiness, and reinvestment pathways.",
   },
 ];
 

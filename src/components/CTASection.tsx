@@ -25,7 +25,7 @@ export function CTASection() {
               <span className="text-gradient-amber">50,000 Lives</span>
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              By investing in this program, you contribute to the Africa We Want — one where opportunities find talent, and talent finds opportunities that transform lives.
+              By investing in this program, you contribute to the Africa We Want, one where opportunities find talent, and talent finds opportunities that transform lives.
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button

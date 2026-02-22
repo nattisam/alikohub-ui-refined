@@ -37,7 +37,7 @@ export function HeroSection() {
 
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
             Building Africa's largest youth resourcefulness ecosystem in Digital
-            Health, One Health, STEM, and Innovation — reaching 50,000 youth
+            Health, One Health, STEM, and Innovation, reaching 50,000 youth
             across 10 regional hubs.
           </p>
 
