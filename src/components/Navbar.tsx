@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone, Globe, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import alikohubLogo from "@/assets/alikohub-logo.png";
 
 const navLinks = [
   { label: "Home", href: "#" },
@@ -40,13 +41,8 @@ export function Navbar() {
       <nav className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="container mx-auto flex items-center justify-between px-6 py-4">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-              <span className="font-heading text-lg font-bold text-primary-foreground">A</span>
-            </div>
-            <span className="font-heading text-xl font-bold text-foreground">
-              Aliko<span className="text-primary">Hub</span>
-            </span>
+          <a href="#" className="flex items-center">
+            <img src={alikohubLogo} alt="AlikoHub" className="h-10" />
           </a>
 
           {/* Desktop links */}
