@@ -1,19 +1,44 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, Globe, Menu, X } from "lucide-react";
+import { Mail, Phone, Globe, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import alikohubLogo from "@/assets/alikohub-logo.png";
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Impact", href: "#impact" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  {
+    label: "Programs",
+    href: "/programs",
+    children: [
+      { label: "All Programs", href: "/programs" },
+      { label: "Innovation Hubs", href: "/hubs" },
+    ],
+  },
+  { label: "Impact", href: "/impact" },
+  {
+    label: "Partners",
+    href: "/partners",
+    children: [
+      { label: "Partnership Strategy", href: "/partners" },
+      { label: "Sustainability", href: "/sustainability" },
+    ],
+  },
+  {
+    label: "Governance",
+    href: "/governance",
+    children: [
+      { label: "Structure", href: "/governance" },
+      { label: "Ethics & Safeguards", href: "/ethics" },
+    ],
+  },
 ];
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const location = useLocation();
 
   return (
     <>
@@ -25,9 +50,9 @@ export function Navbar() {
               <Mail className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">info@alikohub.com</span>
             </a>
-            <a href="tel:+251111234567" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+            <a href="tel:+12063535373" className="flex items-center gap-1.5 hover:text-primary transition-colors">
               <Phone className="h-3.5 w-3.5" />
-              <span className="hidden sm:inline">+251 11 123 4567</span>
+              <span className="hidden sm:inline">+1 206 353 5373</span>
             </a>
           </div>
           <div className="flex items-center gap-1.5">
@@ -41,25 +66,49 @@ export function Navbar() {
       <nav className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="container mx-auto flex items-center justify-between px-6 py-4">
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={alikohubLogo} alt="AlikoHub" className="h-10" />
-          </a>
+          </Link>
 
           {/* Desktop links */}
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-7 lg:flex">
             {navLinks.map((link) => (
-              <a
+              <div
                 key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                className="relative"
+                onMouseEnter={() => link.children && setOpenDropdown(link.label)}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
-                {link.label}
-              </a>
+                <Link
+                  to={link.href}
+                  className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${
+                    location.pathname === link.href ? "text-primary" : "text-muted-foreground"
+                  }`}
+                >
+                  {link.label}
+                  {link.children && <ChevronDown className="h-3.5 w-3.5" />}
+                </Link>
+                {link.children && openDropdown === link.label && (
+                  <div className="absolute left-0 top-full pt-2 z-50">
+                    <div className="rounded-xl border border-border/50 bg-card p-2 shadow-lg min-w-[180px]">
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          to={child.href}
+                          className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-3 lg:flex">
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
               Login
             </Button>
@@ -70,7 +119,7 @@ export function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden text-foreground"
+            className="lg:hidden text-foreground"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -84,20 +133,33 @@ export function Navbar() {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="overflow-hidden border-t border-border/50 md:hidden"
+              className="overflow-hidden border-t border-border/50 lg:hidden"
             >
-              <div className="flex flex-col gap-4 px-6 py-6">
+              <div className="flex flex-col gap-1 px-6 py-6">
                 {navLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {link.label}
-                  </a>
+                  <div key={link.label}>
+                    <Link
+                      to={link.href}
+                      className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:text-primary ${
+                        location.pathname === link.href ? "text-primary bg-primary/10" : "text-muted-foreground"
+                      }`}
+                      onClick={() => !link.children && setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                    {link.children?.map((child) => (
+                      <Link
+                        key={child.href}
+                        to={child.href}
+                        className="block rounded-lg px-6 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
                 ))}
-                <div className="flex gap-3 pt-4 border-t border-border/50">
+                <div className="flex gap-3 pt-4 border-t border-border/50 mt-2">
                   <Button variant="ghost" size="sm" className="flex-1">Login</Button>
                   <Button size="sm" className="flex-1 bg-primary text-primary-foreground">Sign Up</Button>
                 </div>
