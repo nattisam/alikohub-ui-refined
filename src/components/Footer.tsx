@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Globe, MapPin } from "lucide-react";
 import alikohubLogo from "@/assets/alikohub-logo.png";
 
 const footerLinks = {
@@ -24,11 +24,14 @@ export function Footer() {
               <a href="mailto:info@alikohub.com" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Mail className="h-4 w-4" /> info@alikohub.com
               </a>
-              <a href="tel:+251111234567" className="flex items-center gap-2 hover:text-primary transition-colors">
-                <Phone className="h-4 w-4" /> +251 11 123 4567
+              <a href="https://www.alikohub.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+                <Globe className="h-4 w-4" /> www.alikohub.com
               </a>
               <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" /> Addis Ababa, Ethiopia
+                <MapPin className="h-4 w-4 shrink-0" /> Seattle, Washington, USA
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 shrink-0" /> Addis Ababa, Ethiopia (Regional)
               </div>
             </div>
           </div>
