@@ -8,33 +8,33 @@ import serviceEvents from "@/assets/service-events.jpg";
 
 const services = [
   {
-    title: "TRAIN — Aliko Academy",
+    title: "Aliko Academy",
     description:
-      "Market-aligned certification in AI, data analytics, cloud computing, Digital Health, One Health, STEM, and engineering — preparing youth for real labor market needs.",
+      "Workforce development and certification pathways aligned with global labor markets.",
     icon: GraduationCap,
     image: serviceAcademy,
     link: "https://academy.alikohub.com/",
   },
   {
-    title: "GUIDE — Aliko Consultancy",
+    title: "Aliko Consultancy",
     description:
-      "Personalized mentorship, career advisory, exam and interview preparation, skill assessment, and resume building — helping youth navigate complex systems with confidence.",
+      "Career advisory, professional development, and global mentorship services.",
     icon: Globe2,
     image: serviceConsultancy,
     link: "#",
   },
   {
-    title: "CONNECT — Aliko Events",
+    title: "Aliko Events",
     description:
-      "Employer and talent matchmaking, investor forums, government partnerships, innovation challenges, and hackathons — linking youth to real opportunity.",
+      "Industry matchmaking, innovation forums, and ecosystem-building engagements.",
     icon: CalendarDays,
     image: serviceEvents,
     link: "#",
   },
   {
-    title: "SCALE — Innovation Hubs",
+    title: "Aliko Engineering Technology",
     description:
-      "Regional hubs across 10 African countries with incubation, investor readiness, applied labs, and public–private partnerships that help youth-led enterprises grow.",
+      "Applied engineering, digital infrastructure, and technology-driven solutions.",
     icon: HardHat,
     image: serviceContech,
     link: "#",
@@ -52,7 +52,7 @@ const cardVariants = {
 
 export function ServicesSection() {
   return (
-    <section id="services" className="relative py-24 lg:py-32">
+    <section id="ventures" className="relative py-24 lg:py-32">
       <div className="container mx-auto px-6">
         {/* Heading */}
         <motion.div
@@ -63,13 +63,13 @@ export function ServicesSection() {
           transition={{ duration: 0.5 }}
         >
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
-            Our Services
+            AlikoHub Ventures
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            One Ecosystem, <span className="text-gradient-amber">Four Pillars</span>
+            Our <span className="text-gradient-amber">Ventures</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            A coordinated platform that teaches, guides, connects, and scales youth potential — where dignity, talent, and opportunity grow together.
+            Independent operating companies powering the AlikoHub ecosystem and driving sustainable impact across Digital Health, STEM, innovation, and enterprise.
           </p>
         </motion.div>
 
