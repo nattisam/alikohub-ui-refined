@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import alikohubLogo from "@/assets/alikohub-logo.png";
 
 const footerLinks = {
   Ecosystem: ["Aliko Academy", "Aliko Consultancy", "Aliko Events", "Innovation Hubs"],
@@ -13,13 +14,8 @@ export function Footer() {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-                <span className="font-heading text-lg font-bold text-primary-foreground">A</span>
-              </div>
-              <span className="font-heading text-xl font-bold text-foreground">
-                Aliko<span className="text-primary">Hub</span>
-              </span>
+            <div className="mb-4">
+              <img src={alikohubLogo} alt="AlikoHub" className="h-14" />
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
               Honoring youth potential where opportunity meets dignity, transforming Africa's future through Digital Health, STEM, and innovation pathways.
