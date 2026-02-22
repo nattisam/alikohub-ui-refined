@@ -1,26 +1,53 @@
 import { motion } from "framer-motion";
-import { Target, Eye, Lightbulb, Globe } from "lucide-react";
 
 const cards = [
   {
-    icon: Target,
-    title: "Our Mission",
-    text: "Empower Africa's youth as capable and dignified agents of transformation through integrated Digital Health, One Health, STEM, and entrepreneurship pathways.",
+    title: "Transforming Key Sectors",
+    text: "Digitize construction processes and deliver personalized educational consulting.",
+    bg: "bg-sky-100",
+    textColor: "text-sky-900",
+    span: "col-span-1",
+    rowSpan: "",
   },
   {
-    icon: Eye,
-    title: "Our Vision",
-    text: "Build a globally connected youth empowerment ecosystem where talent is matched with opportunity in ways that are equitable, scalable, and sustainable.",
+    title: "Inclusive and Sustainable Growth",
+    text: "Leverage technology to drive long-term development.",
+    bg: "bg-cyan-200",
+    textColor: "text-cyan-900",
+    span: "col-span-1",
+    rowSpan: "",
   },
   {
-    icon: Lightbulb,
-    title: "What Makes Us Different",
-    text: "A one-window resourcefulness ecosystem, not a traditional training center, where education, mentorship, capital, and opportunity converge.",
+    title: "Vision",
+    text: "AlikoHub envisions leading Africa's digital transformation by innovating in construction, education, and consulting while fostering inclusive, sustainable progress.",
+    bg: "bg-amber-200",
+    textColor: "text-amber-900",
+    span: "col-span-1",
+    rowSpan: "row-span-2",
   },
   {
-    icon: Globe,
-    title: "Pan-African Reach",
-    text: "10 regional innovation hubs across Africa with complementary pathways in the United States and Canada for global learning and innovation exchange.",
+    title: "Mission",
+    text: "AlikoHub's mission is to digitally empower African individuals and communities by bridging global opportunities and driving innovation.",
+    bg: "bg-orange-200",
+    textColor: "text-orange-900",
+    span: "col-span-2",
+    rowSpan: "row-span-1",
+  },
+  {
+    title: "Empowerment Through Innovation",
+    text: "Foster inclusive growth and collaboration by enabling access to transformative digital solutions.",
+    bg: "bg-orange-100",
+    textColor: "text-orange-900",
+    span: "col-span-1",
+    rowSpan: "",
+  },
+  {
+    title: "Connecting Africa to the World",
+    text: "Build a seamless digital hub that links Africa with global opportunities.",
+    bg: "bg-sky-200",
+    textColor: "text-sky-900",
+    span: "col-span-1",
+    rowSpan: "",
   },
 ];
 
@@ -45,22 +72,38 @@ export function MissionSection() {
           </p>
         </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Bento grid matching the reference design */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(180px,auto)]">
           {cards.map((card, i) => (
             <motion.div
               key={card.title}
-              className="group relative rounded-2xl border border-border/50 p-6 transition-all duration-300 hover:border-primary/30"
-              style={{ background: "var(--gradient-card)" }}
+              className={`${card.bg} ${card.span} ${card.rowSpan} rounded-2xl p-8 flex flex-col justify-end relative overflow-hidden transition-transform duration-300 hover:scale-[1.02]`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                <card.icon className="h-6 w-6 text-primary" />
+              {/* Diagonal line texture */}
+              <div
+                className="absolute inset-0 opacity-[0.08] pointer-events-none"
+                style={{
+                  backgroundImage: `repeating-linear-gradient(
+                    135deg,
+                    currentColor 0px,
+                    currentColor 1px,
+                    transparent 1px,
+                    transparent 12px
+                  )`,
+                }}
+              />
+              <div className="relative z-10">
+                <h3 className={`font-heading text-xl md:text-2xl font-bold ${card.textColor} mb-3`}>
+                  {card.title}
+                </h3>
+                <p className={`text-sm md:text-base leading-relaxed ${card.textColor} opacity-80`}>
+                  {card.text}
+                </p>
               </div>
-              <h3 className="font-heading text-lg font-semibold text-foreground">{card.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{card.text}</p>
             </motion.div>
           ))}
         </div>

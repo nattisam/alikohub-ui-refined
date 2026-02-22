@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { EcosystemFlow } from "@/components/EcosystemFlow";
 import { ChallengesSection } from "@/components/ChallengesSection";
+import { ResponseSection } from "@/components/ResponseSection";
 import { StatsSection } from "@/components/StatsSection";
 import { MissionSection } from "@/components/MissionSection";
 import { MissionInActionSection } from "@/components/MissionInActionSection";
@@ -18,6 +19,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <ChallengesSection />
+      <ResponseSection />
       <EcosystemFlow />
       <ServicesSection />
       <StatsSection />
