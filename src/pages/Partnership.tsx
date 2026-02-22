@@ -16,6 +16,20 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 
+import partnerGenshifter from "@/assets/partner-genshifter.jpg";
+import partnerAlikore from "@/assets/partner-alikore.png";
+import partnerConshifter from "@/assets/partner-conshifter.png";
+import partnerWefta from "@/assets/partner-wefta.png";
+import partnerKindred from "@/assets/partner-kindred.png";
+
+const ourPartners = [
+  { name: "GenShifter Technologies", logo: partnerGenshifter },
+  { name: "Alikore", logo: partnerAlikore },
+  { name: "Conshifter Africa Alliance", logo: partnerConshifter },
+  { name: "WEFTA", logo: partnerWefta },
+  { name: "Kindred Hospitals", logo: partnerKindred },
+];
+
 const options = [
   {
     icon: Building2,
@@ -113,28 +127,63 @@ const Partnership = () => {
       {/* Cards */}
       <section className="py-20 lg:py-28">
         <div className="container mx-auto px-6">
-          <div className="grid gap-8 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {options.map((opt, i) => (
               <motion.div
                 key={opt.title}
-                className="group rounded-2xl border border-border/60 bg-card p-8 shadow-sm transition-shadow duration-300 hover:shadow-md"
+                className="group flex flex-col items-center gap-4 rounded-2xl border border-border/60 bg-card p-8 text-center shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/30 hover:scale-[1.02]"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <opt.icon className="h-6 w-6" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                  <opt.icon className="h-7 w-7" />
                 </div>
-                <h3 className="font-heading text-xl font-bold text-foreground">
+                <h3 className="font-heading text-base font-bold text-foreground leading-tight">
                   {opt.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {opt.description}
-                </p>
-                <p className="mt-4 text-sm font-medium text-primary">
-                  For: {opt.audience}
-                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Partners */}
+      <section className="border-t border-border/50 py-20 lg:py-28">
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="mx-auto mb-14 max-w-2xl text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
+              Who We Work With
+            </span>
+            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+              Our <span className="text-gradient-amber">Partners</span>
+            </h2>
+            <p className="mt-4 text-muted-foreground">
+              We collaborate with leading organizations committed to youth empowerment and sustainable development across Africa.
+            </p>
+          </motion.div>
+
+          <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
+            {ourPartners.map((partner, i) => (
+              <motion.div
+                key={partner.name}
+                className="group flex h-28 w-48 items-center justify-center rounded-xl border border-border/50 bg-card p-4 transition-all duration-300 hover:border-primary/30 hover:shadow-lg"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="max-h-20 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                />
               </motion.div>
             ))}
           </div>
