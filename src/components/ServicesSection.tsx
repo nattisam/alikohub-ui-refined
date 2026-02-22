@@ -8,32 +8,32 @@ import serviceEvents from "@/assets/service-events.jpg";
 
 const services = [
   {
-    title: "Aliko Academy",
+    title: "TRAIN — Aliko Academy",
     description:
-      "Career-driven courses across Technology, Health, and Engineering/STEM. From data analytics to AI — build real-world skills.",
+      "Market-aligned certification in AI, data analytics, cloud computing, Digital Health, One Health, STEM, and engineering — preparing youth for real labor market needs.",
     icon: GraduationCap,
     image: serviceAcademy,
   },
   {
-    title: "Aliko Consultancy",
+    title: "GUIDE — Aliko Consultancy",
     description:
-      "End-to-end support for international students — university admissions, visa applications, document prep, and interview coaching.",
+      "Personalized mentorship, career advisory, exam and interview preparation, skill assessment, and resume building — helping youth navigate complex systems with confidence.",
     icon: Globe2,
     image: serviceConsultancy,
   },
   {
-    title: "Aliko Con-Tech",
+    title: "CONNECT — Aliko Events",
     description:
-      "Digital innovation for construction — real-time project management, contract handling, inventory tracking, and client portals.",
-    icon: HardHat,
-    image: serviceContech,
-  },
-  {
-    title: "Aliko Events",
-    description:
-      "Curated events connecting innovators, industry leaders, and learners across Africa and beyond.",
+      "Employer and talent matchmaking, investor forums, government partnerships, innovation challenges, and hackathons — linking youth to real opportunity.",
     icon: CalendarDays,
     image: serviceEvents,
+  },
+  {
+    title: "SCALE — Innovation Hubs",
+    description:
+      "Regional hubs across 10 African countries with incubation, investor readiness, applied labs, and public–private partnerships that help youth-led enterprises grow.",
+    icon: HardHat,
+    image: serviceContech,
   },
 ];
 
@@ -62,10 +62,10 @@ export function ServicesSection() {
             Our Services
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            One Platform, <span className="text-gradient-amber">Four Pillars</span>
+            One Ecosystem, <span className="text-gradient-amber">Four Pillars</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Building Africa's digital future — uniting education, consultancy, construction tech, and events.
+            A coordinated platform that teaches, guides, connects, and scales youth potential — where dignity, talent, and opportunity grow together.
           </p>
         </motion.div>
 

@@ -27,18 +27,18 @@ export function HeroSection() {
             transition={{ delay: 0.3 }}
           >
             <Sparkles className="h-4 w-4" />
-            Africa's Digital Future Starts Here
+            Youth Empowerment Ecosystem
           </motion.div>
 
           <h1 className="font-heading text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
-            Empowering Africa's{" "}
-            <span className="text-gradient-amber">Next Generation</span>{" "}
-            of Innovators.
+            Honoring Youth Potential Where Opportunity Meets{" "}
+            <span className="text-gradient-amber">Dignity</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
-            AlikoHub unites education, global consultancy, and smart construction
-            tools under one seamless platform — building Africa's digital future.
+            Building Africa's largest youth resourcefulness ecosystem in Digital
+            Health, One Health, STEM, and Innovation — reaching 50,000 youth
+            across 10 regional hubs.
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
@@ -46,7 +46,7 @@ export function HeroSection() {
               size="lg"
               className="group bg-primary px-8 text-primary-foreground shadow-[var(--shadow-amber)] hover:bg-amber-light"
             >
-              Get Started
+              Partner With Us
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
@@ -54,7 +54,7 @@ export function HeroSection() {
               variant="outline"
               className="border-border text-foreground hover:bg-secondary"
             >
-              Learn More
+              Explore Programs
             </Button>
           </div>
         </motion.div>
