@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Ventures", href: "/programs" },
-  { label: "Engage", href: "/engage" },
+  { label: "Partnership", href: "/partnership" },
   { label: "Career", href: "https://career.alikohub.com/", external: true },
 ];
 
