@@ -53,8 +53,9 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               className="border-border text-foreground hover:bg-secondary"
+              asChild
             >
-              Explore Programs
+              <a href="/programs">View Our Ventures</a>
             </Button>
           </div>
         </motion.div>

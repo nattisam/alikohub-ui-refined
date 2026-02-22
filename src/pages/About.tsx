@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb, Landmark, Heart, Brain, Briefcase, GraduationCap, ArrowRight } from "lucide-react";
+import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb, Landmark, Heart, Brain, Briefcase, GraduationCap, ArrowRight, Layers, Building2, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const differentiators = [
@@ -158,6 +158,69 @@ const About = () => {
                   <item.icon className="h-6 w-6 text-primary" />
                 </div>
                 <p className="text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Structural Differentiation */}
+      <section className="py-24 lg:py-32">
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="mx-auto mb-16 max-w-2xl text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
+              Structural Differentiation
+            </span>
+            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+              Why AlikoHub Will Be <span className="text-gradient-amber">Different</span>
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              Unlike fragmented interventions, AlikoHub will operate as an integrated ecosystem where each component reinforces the others.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-8 sm:grid-cols-3">
+            {[
+              {
+                icon: Layers,
+                title: "One-Window Ecosystem",
+                description: "Single point of access to training, mentorship, incubation, and market linkages. No fragmented handoffs between programs.",
+                accent: "bg-accent/10 border-accent/30",
+                iconBg: "bg-accent/20 text-accent-foreground",
+              },
+              {
+                icon: Building2,
+                title: "Physical + Digital Infrastructure",
+                description: "10 regional hubs will provide physical presence while digital platforms enable scale and accessibility across geographies.",
+                accent: "bg-primary/5 border-primary/30",
+                iconBg: "bg-primary/15 text-primary",
+              },
+              {
+                icon: CheckCircle2,
+                title: "Outcome-Linked Design",
+                description: "Every program component will be designed backward from employment and enterprise outcomes. Training without placement will be considered failure.",
+                accent: "bg-accent/10 border-accent/30",
+                iconBg: "bg-accent/20 text-accent-foreground",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                className={`rounded-2xl border p-8 shadow-sm hover:shadow-md transition-shadow duration-300 ${item.accent}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.12 }}
+              >
+                <div className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl ${item.iconBg}`}>
+                  <item.icon className="h-7 w-7" />
+                </div>
+                <h3 className="font-heading text-xl font-bold text-primary mb-3">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{item.description}</p>
               </motion.div>
             ))}
           </div>
