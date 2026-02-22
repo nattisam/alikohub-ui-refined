@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb } from "lucide-react";
+import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb, Landmark, Heart, Brain, Briefcase, GraduationCap, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const differentiators = [
   { icon: BookOpen, text: "Learning and application linked directly to employment and enterprise" },
@@ -46,6 +47,49 @@ const timeline = [
       "Strengthen global pathways across continents",
     ],
   },
+];
+
+const pillars = [
+  {
+    icon: GraduationCap,
+    title: "Aliko Academy",
+    description: "Career-driven courses across Technology, Health, and STEM — delivering market-aligned training that evolves with labor market needs.",
+    bullets: ["AI, Machine Learning, Data Analytics, Cloud Computing", "Software Development, Databases, Testing", "Finance, Accounting, Design, Marketing", "Academic Preparation and Language Learning"],
+  },
+  {
+    icon: Heart,
+    title: "Digital Health & One Health",
+    description: "Strengthening public health systems and climate resilience by preparing youth for emerging roles in health technology and surveillance.",
+    bullets: ["Public health workforce pipelines", "Mobile health for prevention and behavior change", "Health data analytics and population health", "Climate-linked and zoonotic disease monitoring"],
+  },
+  {
+    icon: Brain,
+    title: "STEM & Engineering",
+    description: "Preparing youth for infrastructure, energy, construction technology, and sustainable development with industry-standard tools.",
+    bullets: ["Engineering fundamentals and digital design", "Modeling, simulation, and GIS", "Civil, electrical, mechanical, and architectural fields", "Applied problem-solving aligned with employer expectations"],
+  },
+  {
+    icon: Briefcase,
+    title: "Consultancy & Events",
+    description: "Guiding youth through personalized career pathways and connecting them to employers, investors, and public sector partners.",
+    bullets: ["Career advice, skill assessment, resume building", "Employer and talent matchmaking", "Investor forums and innovation challenges", "Government and private sector partnership spaces"],
+  },
+];
+
+const partnerCategories = [
+  { icon: Landmark, title: "Government", text: "Ministries of Education, Health, ICT, and Youth in 10 target countries providing policy alignment, co-financing, and institutional support." },
+  { icon: Briefcase, title: "Private Sector", text: "Technology companies, healthcare organizations, and industry leaders providing internships, apprenticeships, and employment pathways." },
+  { icon: GraduationCap, title: "Academic", text: "Universities and research institutions co-developing curricula, validating certifications, and hosting applied research programs." },
+  { icon: Globe, title: "Development Partners", text: "International organizations, foundations, and bilateral agencies providing funding, technical assistance, and global networks." },
+];
+
+const revenueModels = [
+  "Public–Private Partnership Co-Financing",
+  "Advanced Certifications & Premium Training",
+  "Consulting Services for Government & NGOs",
+  "Advisory Services for Enterprise Development",
+  "Alumni Network & Continuing Education",
+  "Incubation Reinvestment from Youth Enterprises",
 ];
 
 const About = () => {
@@ -120,8 +164,55 @@ const About = () => {
         </div>
       </section>
 
-      {/* Pathway to Centers of Excellence */}
+      {/* Programs / 4 Pillars */}
       <section className="py-24 lg:py-32">
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="mx-auto mb-16 max-w-2xl text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
+              Our Programs
+            </span>
+            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+              Four Pillars of <span className="text-gradient-amber">Youth Empowerment</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid gap-8 lg:grid-cols-2">
+            {pillars.map((pillar, i) => (
+              <motion.div
+                key={pillar.title}
+                className="group rounded-2xl border border-border/50 p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.02]"
+                style={{ background: "var(--gradient-card)" }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <pillar.icon className="h-7 w-7 text-primary" />
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-foreground">{pillar.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pillar.description}</p>
+                <ul className="mt-5 space-y-2">
+                  {pillar.bullets.map((b, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pathway to Centers of Excellence */}
+      <section className="py-24 lg:py-32 bg-card/50">
         <div className="container mx-auto px-6">
           <motion.div
             className="mx-auto mb-16 max-w-2xl text-center"
@@ -163,6 +254,116 @@ const About = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="py-24 lg:py-32">
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="mx-auto mb-16 max-w-2xl text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
+              Partnership Strategy
+            </span>
+            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+              Building Impact <span className="text-gradient-amber">Together</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {partnerCategories.map((cat, i) => (
+              <motion.div
+                key={cat.title}
+                className="group rounded-2xl border border-border/50 p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.02]"
+                style={{ background: "var(--gradient-card)" }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <cat.icon className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-lg font-semibold text-foreground">{cat.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{cat.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sustainability */}
+      <section className="py-24 lg:py-32 bg-card/50">
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="mx-auto mb-16 max-w-2xl text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
+              Sustainability
+            </span>
+            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+              Revenue <span className="text-gradient-amber">Model</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {revenueModels.map((model, i) => (
+              <motion.div
+                key={model}
+                className="group flex items-center gap-4 rounded-2xl border border-border/50 p-5 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)]"
+                style={{ background: "var(--gradient-card)" }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+              >
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary">
+                  {i + 1}
+                </div>
+                <span className="text-sm font-medium text-muted-foreground">{model}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 lg:py-32">
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="rounded-3xl border border-border/50 p-12 lg:p-20 text-center"
+            style={{ background: "var(--gradient-card)" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+              Ready to <span className="text-gradient-amber">Partner?</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-lg text-muted-foreground">
+              Join us in building Africa's largest youth empowerment ecosystem.
+            </p>
+            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <Button size="lg" className="group bg-primary px-8 text-primary-foreground shadow-[var(--shadow-amber)] hover:bg-amber-light" asChild>
+                <a href="mailto:info@alikohub.com">
+                  Contact Us
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="border-border text-foreground hover:bg-secondary" asChild>
+                <a href="https://alikohub-pitch.lovable.app/" target="_blank" rel="noopener noreferrer">
+                  View Full Pitch
+                </a>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
 

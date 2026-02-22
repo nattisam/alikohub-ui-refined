@@ -13,6 +13,7 @@ const services = [
       "Market-aligned certification in AI, data analytics, cloud computing, Digital Health, One Health, STEM, and engineering — preparing youth for real labor market needs.",
     icon: GraduationCap,
     image: serviceAcademy,
+    link: "https://academy.alikohub.com/",
   },
   {
     title: "GUIDE — Aliko Consultancy",
@@ -20,6 +21,7 @@ const services = [
       "Personalized mentorship, career advisory, exam and interview preparation, skill assessment, and resume building — helping youth navigate complex systems with confidence.",
     icon: Globe2,
     image: serviceConsultancy,
+    link: "#",
   },
   {
     title: "CONNECT — Aliko Events",
@@ -27,6 +29,7 @@ const services = [
       "Employer and talent matchmaking, investor forums, government partnerships, innovation challenges, and hackathons — linking youth to real opportunity.",
     icon: CalendarDays,
     image: serviceEvents,
+    link: "#",
   },
   {
     title: "SCALE — Innovation Hubs",
@@ -34,6 +37,7 @@ const services = [
       "Regional hubs across 10 African countries with incubation, investor readiness, applied labs, and public–private partnerships that help youth-led enterprises grow.",
     icon: HardHat,
     image: serviceContech,
+    link: "#",
   },
 ];
 
@@ -104,7 +108,9 @@ export function ServicesSection() {
                   {service.description}
                 </p>
                 <a
-                  href="#"
+                  href={service.link}
+                  target={service.link.startsWith("http") ? "_blank" : undefined}
+                  rel={service.link.startsWith("http") ? "noopener noreferrer" : undefined}
                   className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary transition-all hover:gap-2"
                 >
                   View site
