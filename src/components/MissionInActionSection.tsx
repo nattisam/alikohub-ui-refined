@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
 import { Brain, Heart, Rocket, Handshake, BookOpen, BarChart3 } from "lucide-react";
 
+const cardColors = [
+  { bg: "bg-[hsl(210,40%,88%)]", text: "text-[hsl(210,60%,25%)]", iconBg: "bg-[hsl(210,50%,78%)]" },
+  { bg: "bg-[hsl(20,80%,75%)]", text: "text-[hsl(20,60%,20%)]", iconBg: "bg-[hsl(20,70%,65%)]" },
+  { bg: "bg-[hsl(190,60%,78%)]", text: "text-[hsl(190,70%,20%)]", iconBg: "bg-[hsl(190,50%,68%)]" },
+  { bg: "bg-[hsl(40,85%,75%)]", text: "text-[hsl(30,70%,20%)]", iconBg: "bg-[hsl(40,75%,65%)]" },
+  { bg: "bg-[hsl(25,70%,82%)]", text: "text-[hsl(25,60%,22%)]", iconBg: "bg-[hsl(25,60%,72%)]" },
+  { bg: "bg-[hsl(210,50%,82%)]", text: "text-[hsl(210,60%,22%)]", iconBg: "bg-[hsl(210,45%,72%)]" },
+];
+
 const actions = [
   {
     icon: Brain,
@@ -56,23 +65,25 @@ export function MissionInActionSection() {
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {actions.map((action, i) => (
-            <motion.div
-              key={action.title}
-              className="group rounded-2xl border border-border/50 p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.02]"
-              style={{ background: "var(--gradient-card)" }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-            >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                <action.icon className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="font-heading text-lg font-semibold text-foreground">{action.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{action.text}</p>
-            </motion.div>
-          ))}
+          {actions.map((action, i) => {
+            const color = cardColors[i % cardColors.length];
+            return (
+              <motion.div
+                key={action.title}
+                className={`group rounded-2xl ${color.bg} p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+              >
+                <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl ${color.iconBg}`}>
+                  <action.icon className={`h-6 w-6 ${color.text}`} />
+                </div>
+                <h3 className={`font-heading text-lg font-semibold ${color.text}`}>{action.title}</h3>
+                <p className={`mt-2 text-sm leading-relaxed ${color.text} opacity-75`}>{action.text}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
