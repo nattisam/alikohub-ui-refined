@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb, Landmark, Heart, Brain, Briefcase, GraduationCap, ArrowRight, Layers, Building2, CheckCircle2 } from "lucide-react";
+import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb, Landmark, Heart, Brain, Briefcase, GraduationCap, ArrowRight, Layers, Building2, CheckCircle2, Shield, Users2, Eye, MapPinned, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const differentiators = [
@@ -356,6 +356,72 @@ const About = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Governance Philosophy */}
+      <section className="py-24 lg:py-32 bg-card/50">
+        <div className="container mx-auto px-6">
+          <motion.div
+            className="mx-auto max-w-2xl rounded-2xl border border-border/50 p-8 lg:p-10 shadow-sm"
+            style={{ background: "var(--gradient-card)" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="mb-8 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/15 text-accent-foreground">
+                <Shield className="h-5 w-5" />
+              </div>
+              <h2 className="font-heading text-2xl font-bold text-foreground">Governance Philosophy</h2>
+            </div>
+
+            <div className="space-y-6">
+              {[
+                {
+                  icon: Users2,
+                  color: "bg-primary/15 text-primary",
+                  title: "Multi-Stakeholder Governance",
+                  text: "The board will include representation from government, development partners, private sector, academia, and youth constituencies.",
+                },
+                {
+                  icon: Eye,
+                  color: "bg-primary/10 text-primary",
+                  title: "Transparency & Accountability",
+                  text: "Annual audited financials, public impact reports, and independent evaluations will be published openly.",
+                },
+                {
+                  icon: MapPinned,
+                  color: "bg-accent/15 text-accent-foreground",
+                  title: "Local Ownership",
+                  text: "Regional hubs will be governed by local advisory committees with authority over contextual adaptation.",
+                },
+                {
+                  icon: Star,
+                  color: "bg-accent/15 text-accent-foreground",
+                  title: "Youth Voice",
+                  text: "Youth representatives will serve on governance bodies at all levels, from hub committees to central board.",
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  className="flex items-start gap-4"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${item.color}`}>
+                    <item.icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-base font-bold text-primary">{item.title}</h3>
+                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
