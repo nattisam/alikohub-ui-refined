@@ -132,7 +132,7 @@ export function ChallengesSection() {
             <span className="text-gradient-amber">Systemic Solutions</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Across Africa — and increasingly in North America — young people are not held back by a lack of ambition or talent, but by systems that have not kept pace with their realities.
+            Across Africa and increasingly in North America, young people are not held back by a lack of ambition or talent, but by systems that have not kept pace with their realities.
           </p>
         </motion.div>
 
