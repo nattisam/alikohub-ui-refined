@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Globe2, HardHat, CalendarDays, ArrowUpRight } from "lucide-react";
+import { GraduationCap, Globe2, HardHat, CalendarDays, Droplets, ArrowUpRight } from "lucide-react";
 
 import serviceAcademy from "@/assets/service-academy.jpg";
 import serviceConsultancy from "@/assets/service-consultancy.png";
 import serviceContech from "@/assets/service-contech.png";
 import serviceEvents from "@/assets/service-events.jpg";
+import serviceAlikowash from "@/assets/service-alikowash.png";
 
 const services = [
   {
@@ -38,6 +39,15 @@ const services = [
     icon: HardHat,
     image: serviceContech,
     link: "#",
+  },
+  {
+    title: "Aliko WASH",
+    description:
+      "Water, sanitation, and hygiene solutions driving public health impact and community resilience across Africa.",
+    icon: Droplets,
+    image: serviceAlikowash,
+    link: "https://alikowash.lovable.app/",
+    darkOverlay: true,
   },
 ];
 
@@ -93,7 +103,7 @@ export function ServicesSection() {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                <div className={`absolute inset-0 ${(service as any).darkOverlay ? 'bg-gradient-to-t from-card via-card/70 to-card/40' : 'bg-gradient-to-t from-card via-card/50 to-transparent'}`} />
                 <div className="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 backdrop-blur-sm">
                   <service.icon className="h-5 w-5 text-primary" />
                 </div>

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { GraduationCap, Heart, Cpu, Briefcase } from "lucide-react";
+import { GraduationCap, Heart, Cpu, Briefcase, Droplets } from "lucide-react";
 
 const pillars = [
   {
@@ -48,6 +48,18 @@ const pillars = [
       "Government and private sector partnership spaces",
     ],
   },
+  {
+    icon: Droplets,
+    title: "Aliko WASH",
+    description: "Water, sanitation, and hygiene solutions driving public health impact and community resilience across Africa.",
+    bullets: [
+      "Clean water access and infrastructure",
+      "Sanitation systems and hygiene education",
+      "Community health and disease prevention",
+      "Sustainable WASH technology solutions",
+    ],
+    link: "https://alikowash.lovable.app/",
+  },
 ];
 
 const Programs = () => {
@@ -67,7 +79,7 @@ const Programs = () => {
               AlikoHub Ventures
             </span>
             <h1 className="font-heading text-4xl font-bold text-foreground sm:text-5xl">
-              Four Pillars of <span className="text-gradient-amber">Youth Empowerment</span>
+              Five Pillars of <span className="text-gradient-amber">Youth Empowerment</span>
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
               Integrated pathways in Digital Health, One Health, STEM, and entrepreneurship, designed to reach 50,000 youth across Africa.
@@ -98,8 +110,13 @@ const Programs = () => {
                     </li>
                   ))}
                 </ul>
-                <a href="#" className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary hover:gap-2 transition-all">
-                  Learn More →
+                <a
+                  href={(pillar as any).link || "#"}
+                  target={(pillar as any).link ? "_blank" : undefined}
+                  rel={(pillar as any).link ? "noopener noreferrer" : undefined}
+                  className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary hover:gap-2 transition-all"
+                >
+                  {(pillar as any).link ? "View Website →" : "Learn More →"}
                 </a>
               </motion.div>
             ))}
