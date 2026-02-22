@@ -44,7 +44,7 @@ export function Navbar() {
         <div className="container mx-auto flex items-center justify-between px-6 py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src={alikohubLogo} alt="AlikoHub" className="h-10" />
+            <img src={alikohubLogo} alt="AlikoHub" className="h-10 mix-blend-multiply dark:mix-blend-screen" />
           </Link>
 
           {/* Desktop links */}
