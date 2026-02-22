@@ -23,7 +23,6 @@ const partners = [
   { name: "GenShifter Technologies", logo: partnerGenshifter },
   { name: "Alikore", logo: partnerAlikore },
   { name: "Conshifter Africa Alliance", logo: partnerConshifter },
-  { name: "WEFTA", logo: partnerWefta },
   { name: "Kindred Hospitals", logo: partnerKindred },
 ];
 
@@ -98,12 +97,12 @@ const Partners = () => {
               {[...partners, ...partners].map((partner, i) => (
                 <div
                   key={`${partner.name}-${i}`}
-                  className="flex h-32 w-64 shrink-0 items-center justify-center px-4"
+                  className="flex h-44 w-80 shrink-0 items-center justify-center px-4"
                 >
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    className="max-h-28 max-w-full object-contain"
+                    className="max-h-40 max-w-full object-contain"
                   />
                 </div>
               ))}
