@@ -6,16 +6,25 @@ const reasons = [
     icon: Users,
     title: "Youth Demographics",
     text: "Africa's population exceeds 1.55 billion with 73% under age 35, while youth in North America face growing challenges navigating competitive job markets.",
+    bg: "bg-[hsl(210,40%,88%)]",
+    textColor: "text-[hsl(210,60%,25%)]",
+    iconBg: "bg-[hsl(210,50%,78%)]",
   },
   {
     icon: Zap,
     title: "Systemic Gap, Not Talent Gap",
     text: "Young people are not held back by lack of ambition, but by systems that haven't kept pace. The education-to-employment pipeline needs structural transformation.",
+    bg: "bg-[hsl(20,80%,75%)]",
+    textColor: "text-[hsl(20,60%,20%)]",
+    iconBg: "bg-[hsl(20,70%,65%)]",
   },
   {
     icon: TrendingUp,
     title: "The Opportunity Window",
     text: "With expanding digital connectivity, remote work trends, and growing investment in tech and health, the structural conditions now exist to unlock new trajectories.",
+    bg: "bg-[hsl(40,85%,75%)]",
+    textColor: "text-[hsl(30,70%,20%)]",
+    iconBg: "bg-[hsl(40,75%,65%)]",
   },
 ];
 
@@ -44,18 +53,17 @@ export function WhyThisMattersSection() {
           {reasons.map((reason, i) => (
             <motion.div
               key={reason.title}
-              className="group rounded-2xl border border-border/50 p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.02]"
-              style={{ background: "var(--gradient-card)" }}
+              className={`group rounded-2xl ${reason.bg} p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.12 }}
             >
-              <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                <reason.icon className="h-7 w-7 text-primary" />
+              <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-full ${reason.iconBg}`}>
+                <reason.icon className={`h-7 w-7 ${reason.textColor}`} />
               </div>
-              <h3 className="font-heading text-xl font-bold text-foreground">{reason.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{reason.text}</p>
+              <h3 className={`font-heading text-xl font-bold ${reason.textColor}`}>{reason.title}</h3>
+              <p className={`mt-3 text-sm leading-relaxed ${reason.textColor} opacity-75`}>{reason.text}</p>
             </motion.div>
           ))}
         </div>
