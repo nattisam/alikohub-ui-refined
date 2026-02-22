@@ -3,10 +3,10 @@ import { BookOpen, Globe, Building2, Users } from "lucide-react";
 import impactImg from "@/assets/impact-illustration.svg";
 
 const stats = [
-  { label: "Industry-Ready Tech Courses", value: "30+", icon: BookOpen },
-  { label: "Global Visas Processed", value: "4,000+", icon: Globe },
-  { label: "Projects Digitally Managed", value: "23+", icon: Building2 },
-  { label: "Partner Satisfaction Rate", value: "90%", icon: Users },
+  { label: "Youth Targeted Across Africa", value: "50,000", icon: Users },
+  { label: "Employment Outcome Rate", value: "75–85%", icon: BookOpen },
+  { label: "Minimum Female Participation", value: "45%", icon: Globe },
+  { label: "Regional Innovation Hubs", value: "10", icon: Building2 },
 ];
 
 export function StatsSection() {
@@ -26,10 +26,10 @@ export function StatsSection() {
             Our Impact
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Real Impact, <span className="text-gradient-amber">Real Results</span>
+            Measurable Impact, <span className="text-gradient-amber">Continental Scale</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            From student success to smarter construction — AlikoHub is making digital progress visible.
+            A five-year initiative designed to transform youth potential into workforce readiness, enterprise creation, and inclusive economic growth.
           </p>
         </motion.div>
 

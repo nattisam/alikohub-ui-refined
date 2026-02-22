@@ -1,8 +1,8 @@
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const footerLinks = {
-  Services: ["Aliko Academy", "Aliko Consultancy", "Aliko Con-Tech", "Aliko Events"],
-  Company: ["About", "Careers", "Contact", "Blog"],
+  Ecosystem: ["Aliko Academy", "Aliko Consultancy", "Aliko Events", "Innovation Hubs"],
+  Company: ["About", "Impact", "Partners", "Contact"],
   Legal: ["Privacy Policy", "Terms of Service"],
 };
 
@@ -22,7 +22,7 @@ export function Footer() {
               </span>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Building Africa's digital future — uniting education, global consultancy, and smart construction tools under one seamless platform.
+              Honoring youth potential where opportunity meets dignity — transforming Africa's future through Digital Health, STEM, and innovation pathways.
             </p>
             <div className="mt-6 space-y-2 text-sm text-muted-foreground">
               <a href="mailto:info@alikohub.com" className="flex items-center gap-2 hover:text-primary transition-colors">

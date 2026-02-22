@@ -4,23 +4,23 @@ import { Target, Eye, Lightbulb, Globe } from "lucide-react";
 const cards = [
   {
     icon: Target,
-    title: "Mission",
-    text: "Digitally empower African individuals and communities by bridging global opportunities and driving innovation.",
+    title: "Our Mission",
+    text: "Empower Africa's youth as capable and dignified agents of transformation through integrated Digital Health, One Health, STEM, and entrepreneurship pathways.",
   },
   {
     icon: Eye,
-    title: "Vision",
-    text: "Lead Africa's digital transformation by innovating in construction, education, and consulting while fostering inclusive, sustainable progress.",
+    title: "Our Vision",
+    text: "Build a globally connected youth empowerment ecosystem where talent is matched with opportunity in ways that are equitable, scalable, and sustainable.",
   },
   {
     icon: Lightbulb,
-    title: "Empowerment Through Innovation",
-    text: "Foster inclusive growth and collaboration by enabling access to transformative digital solutions.",
+    title: "What Makes Us Different",
+    text: "A one-window resourcefulness ecosystem — not a traditional training center — where education, mentorship, capital, and opportunity converge.",
   },
   {
     icon: Globe,
-    title: "Connecting Africa to the World",
-    text: "Build a seamless digital hub that links Africa with global opportunities.",
+    title: "Pan-African Reach",
+    text: "10 regional innovation hubs across Africa with complementary pathways in the United States and Canada for global learning and innovation exchange.",
   },
 ];
 
@@ -38,8 +38,11 @@ export function MissionSection() {
             Who We Are
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Transforming <span className="text-gradient-amber">Key Sectors</span>
+            Who <span className="text-gradient-amber">We Are</span>
           </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            A human-centered development model that links skills to opportunity, learning to livelihoods, and innovation to public value.
+          </p>
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
