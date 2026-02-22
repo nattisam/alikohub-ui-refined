@@ -48,8 +48,8 @@ const challenges = [
     color: "blue" as const,
     title: "Youth Unemployment & Underemployment",
     summary: "Effort does not translate into opportunity for many young people.",
-    detail: "AlikoHub connects skills to livelihoods through entrepreneurship support, employer matchmaking, and innovation pathways.",
-    metrics: ["50,000 youth targeted", "25–40 youth enterprises supported"],
+    detail: "AlikoHub moves beyond training alone by embedding direct job placement, internship pipelines, employer matchmaking, and startup incubation into program design.",
+    metrics: ["85% employment/self-employment rate target", "50,000 youth trained over 5 years"],
   },
 ];
 
