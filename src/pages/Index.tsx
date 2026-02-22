@@ -4,6 +4,10 @@ import { ServicesSection } from "@/components/ServicesSection";
 import { EcosystemFlow } from "@/components/EcosystemFlow";
 import { StatsSection } from "@/components/StatsSection";
 import { MissionSection } from "@/components/MissionSection";
+import { MissionInActionSection } from "@/components/MissionInActionSection";
+import { WhyThisMattersSection } from "@/components/WhyThisMattersSection";
+import { PolicyAlignmentSection } from "@/components/PolicyAlignmentSection";
+import { CTASection } from "@/components/CTASection";
 import { TeamSection } from "@/components/TeamSection";
 import { Footer } from "@/components/Footer";
 
@@ -16,6 +20,10 @@ const Index = () => {
       <ServicesSection />
       <StatsSection />
       <MissionSection />
+      <MissionInActionSection />
+      <WhyThisMattersSection />
+      <PolicyAlignmentSection />
+      <CTASection />
       <TeamSection />
       <Footer />
     </div>

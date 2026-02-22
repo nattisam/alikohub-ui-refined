@@ -1,43 +1,19 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, Globe, Menu, X, ChevronDown } from "lucide-react";
+import { Mail, Phone, Globe, Menu, X, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import alikohubLogo from "@/assets/alikohub-logo.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  {
-    label: "Programs",
-    href: "/programs",
-    children: [
-      { label: "All Programs", href: "/programs" },
-      { label: "Innovation Hubs", href: "/hubs" },
-    ],
-  },
-  { label: "Impact", href: "/impact" },
-  {
-    label: "Partners",
-    href: "/partners",
-    children: [
-      { label: "Partnership Strategy", href: "/partners" },
-      { label: "Sustainability", href: "/sustainability" },
-    ],
-  },
-  {
-    label: "Governance",
-    href: "/governance",
-    children: [
-      { label: "Structure", href: "/governance" },
-      { label: "Ethics & Safeguards", href: "/ethics" },
-    ],
-  },
+  { label: "Programs", href: "/programs" },
+  { label: "Career", href: "https://career.alikohub.com/", external: true },
 ];
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   return (
@@ -72,39 +48,30 @@ export function Navbar() {
 
           {/* Desktop links */}
           <div className="hidden items-center gap-7 lg:flex">
-            {navLinks.map((link) => (
-              <div
-                key={link.label}
-                className="relative"
-                onMouseEnter={() => link.children && setOpenDropdown(link.label)}
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
+            {navLinks.map((link) =>
+              link.external ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {link.label}
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              ) : (
                 <Link
+                  key={link.label}
                   to={link.href}
-                  className={`flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary ${
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
                     location.pathname === link.href ? "text-primary" : "text-muted-foreground"
                   }`}
                 >
                   {link.label}
-                  {link.children && <ChevronDown className="h-3.5 w-3.5" />}
                 </Link>
-                {link.children && openDropdown === link.label && (
-                  <div className="absolute left-0 top-full pt-2 z-50">
-                    <div className="rounded-xl border border-border/50 bg-card p-2 shadow-lg min-w-[180px]">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          to={child.href}
-                          className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-primary/10 hover:text-primary"
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            ))}
+              )
+            )}
           </div>
 
           {/* Desktop CTA */}
@@ -136,29 +103,32 @@ export function Navbar() {
               className="overflow-hidden border-t border-border/50 lg:hidden"
             >
               <div className="flex flex-col gap-1 px-6 py-6">
-                {navLinks.map((link) => (
-                  <div key={link.label}>
+                {navLinks.map((link) =>
+                  link.external ? (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1 rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  ) : (
                     <Link
+                      key={link.label}
                       to={link.href}
                       className={`block rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:text-primary ${
                         location.pathname === link.href ? "text-primary bg-primary/10" : "text-muted-foreground"
                       }`}
-                      onClick={() => !link.children && setMobileOpen(false)}
+                      onClick={() => setMobileOpen(false)}
                     >
                       {link.label}
                     </Link>
-                    {link.children?.map((child) => (
-                      <Link
-                        key={child.href}
-                        to={child.href}
-                        className="block rounded-lg px-6 py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
-                ))}
+                  )
+                )}
                 <div className="flex gap-3 pt-4 border-t border-border/50 mt-2">
                   <Button variant="ghost" size="sm" className="flex-1">Login</Button>
                   <Button size="sm" className="flex-1 bg-primary text-primary-foreground">Sign Up</Button>
