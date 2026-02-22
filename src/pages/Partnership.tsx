@@ -174,23 +174,21 @@ const Partnership = () => {
             </p>
           </motion.div>
 
-          <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-12">
-            {ourPartners.map((partner, i) => (
-              <motion.div
-                key={partner.name}
-                className="group flex h-28 w-48 items-center justify-center rounded-xl border border-border/50 bg-card p-4 transition-all duration-300 hover:border-primary/30 hover:shadow-lg"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="max-h-20 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                />
-              </motion.div>
-            ))}
+          <div className="relative overflow-hidden">
+            <div className="animate-marquee flex w-max items-center gap-16 lg:gap-24">
+              {[...ourPartners, ...ourPartners].map((partner, i) => (
+                <div
+                  key={`${partner.name}-${i}`}
+                  className="flex h-32 w-64 shrink-0 items-center justify-center px-4"
+                >
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="max-h-28 max-w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
