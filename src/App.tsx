@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound";
 
 const About = lazy(() => import("./pages/About"));
 const Programs = lazy(() => import("./pages/Programs"));
-const Engage = lazy(() => import("./pages/Engage"));
+const Partnership = lazy(() => import("./pages/Partnership"));
 
 const queryClient = new QueryClient();
 
@@ -24,7 +24,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/programs" element={<Programs />} />
-            <Route path="/engage" element={<Engage />} />
+            <Route path="/partnership" element={<Partnership />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
