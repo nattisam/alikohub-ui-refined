@@ -8,7 +8,7 @@ import alikohubLogo from "@/assets/alikohub-logo.png";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Programs", href: "/programs" },
+  { label: "Ventures", href: "/programs" },
   { label: "Career", href: "https://career.alikohub.com/", external: true },
 ];
 
