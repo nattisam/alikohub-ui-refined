@@ -1,74 +1,47 @@
 import { motion } from "framer-motion";
 import { BookOpen, Globe, Building2, Users } from "lucide-react";
-import impactImg from "@/assets/impact-illustration.svg";
 
 const stats = [
-  { label: "Youth Targeted Across Africa", value: "50,000", icon: Users },
-  { label: "Employment Outcome Rate", value: "75–85%", icon: BookOpen },
-  { label: "Minimum Female Participation", value: "45%", icon: Globe },
-  { label: "Regional Innovation Hubs", value: "10", icon: Building2 },
+  { label: "Youth Targeted", value: "50,000", icon: Users },
+  { label: "Employment Rate", value: "75–85%", icon: BookOpen },
+  { label: "Female Participation", value: "45%+", icon: Globe },
+  { label: "Regional Hubs", value: "10", icon: Building2 },
 ];
 
 export function StatsSection() {
   return (
-    <section id="impact" className="relative py-24 lg:py-32">
-      {/* Subtle glow */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]" />
-
-      <div className="container relative mx-auto px-6">
+    <section id="impact" className="py-16 lg:py-20">
+      <div className="container mx-auto px-6">
         <motion.div
-          className="mx-auto mb-16 max-w-2xl text-center"
+          className="mx-auto mb-10 max-w-2xl text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
-            Our Impact
-          </span>
-          <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Measurable Impact, <span className="text-gradient-amber">Continental Scale</span>
+          <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl">
+            Measurable <span className="text-gradient-amber">Impact</span>
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            A five-year initiative designed to transform youth potential into workforce readiness, enterprise creation, and inclusive economic growth.
-          </p>
         </motion.div>
 
-        <div className="flex flex-col items-center gap-16 lg:flex-row">
-          {/* Stats grid */}
-          <div className="grid flex-1 grid-cols-2 gap-6">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                className="group rounded-2xl border border-border/50 bg-card p-6 text-center transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)]"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
-                  <stat.icon className="h-6 w-6 text-primary" />
-                </div>
-                <div className="font-heading text-3xl font-bold text-foreground">{stat.value}</div>
-                <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Illustration */}
-          <motion.div
-            className="flex-1"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <img
-              src={impactImg}
-              alt="Social impact illustration"
-              className="mx-auto max-w-sm animate-float"
-              loading="lazy"
-            />
-          </motion.div>
+        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              className="group flex items-center gap-4 rounded-2xl border border-border/50 bg-card p-5 transition-all duration-300 hover:border-primary/30"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.08 }}
+            >
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 transition-colors group-hover:bg-primary/20">
+                <stat.icon className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <div className="font-heading text-2xl font-bold text-foreground">{stat.value}</div>
+                <div className="text-xs text-muted-foreground">{stat.label}</div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
