@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { MissionSection } from "@/components/MissionSection";
+import { TeamSection } from "@/components/TeamSection";
+import { PolicyAlignmentSection } from "@/components/PolicyAlignmentSection";
 import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb, Landmark, Heart, Brain, Briefcase, GraduationCap, ArrowRight, Layers, Building2, CheckCircle2, Shield, Users2, Eye, MapPinned, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -509,6 +512,10 @@ const About = () => {
           </motion.div>
         </div>
       </section>
+
+      <MissionSection />
+      <TeamSection />
+      <PolicyAlignmentSection />
 
       <Footer />
     </div>

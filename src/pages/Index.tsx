@@ -5,12 +5,9 @@ import { EcosystemFlow } from "@/components/EcosystemFlow";
 import { ChallengesSection } from "@/components/ChallengesSection";
 import { ResponseSection } from "@/components/ResponseSection";
 import { StatsSection } from "@/components/StatsSection";
-import { MissionSection } from "@/components/MissionSection";
 import { MissionInActionSection } from "@/components/MissionInActionSection";
 import { WhyThisMattersSection } from "@/components/WhyThisMattersSection";
-import { PolicyAlignmentSection } from "@/components/PolicyAlignmentSection";
-
-import { TeamSection } from "@/components/TeamSection";
+import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -18,17 +15,14 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <HeroSection />
+      <ServicesSection />
       <ChallengesSection />
       <ResponseSection />
       <EcosystemFlow />
-      <ServicesSection />
       <StatsSection />
-      <MissionSection />
       <MissionInActionSection />
       <WhyThisMattersSection />
-      <PolicyAlignmentSection />
-      
-      <TeamSection />
+      <CTASection />
       <Footer />
     </div>
   );
