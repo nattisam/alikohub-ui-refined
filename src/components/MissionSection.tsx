@@ -2,16 +2,16 @@ import { motion } from "framer-motion";
 
 const cards = [
   {
-    title: "Transforming Key Sectors",
-    text: "Digitize construction processes and deliver personalized educational consulting.",
+    title: "Transforming Workforce & Innovation Systems",
+    text: "Advancing Digital Health, One Health, STEM, and entrepreneurship through integrated training, applied innovation, and scalable workforce pathways across Africa.",
     bg: "bg-[hsl(210,40%,88%)]",
     textColor: "text-[hsl(210,60%,25%)]",
     span: "col-span-1",
     rowSpan: "",
   },
   {
-    title: "Inclusive and Sustainable Growth",
-    text: "Leverage technology to drive long-term development.",
+    title: "Inclusive & Sustainable Growth",
+    text: "Designing youth-centered ecosystems that align skills development with public health resilience, climate responsibility, and long-term economic opportunity.",
     bg: "bg-[hsl(190,60%,78%)]",
     textColor: "text-[hsl(190,70%,20%)]",
     span: "col-span-1",
@@ -19,7 +19,7 @@ const cards = [
   },
   {
     title: "Vision",
-    text: "AlikoHub envisions leading Africa's digital transformation by innovating in construction, education, and consulting while fostering inclusive, sustainable progress.",
+    text: "To build Africa's leading youth resourcefulness ecosystem, a continental network of innovation hubs, digital platforms, and global partnerships that transform demographic momentum into measurable prosperity.",
     bg: "bg-[hsl(40,85%,75%)]",
     textColor: "text-[hsl(30,70%,20%)]",
     span: "col-span-1",
@@ -27,23 +27,23 @@ const cards = [
   },
   {
     title: "Mission",
-    text: "AlikoHub's mission is to digitally empower African individuals and communities by bridging global opportunities and driving innovation.",
+    text: "AlikoHub exists to honor youth potential by building structured pathways from learning to livelihood. Through Digital Health, One Health, STEM, and innovation, we equip young people to lead, create, and contribute with dignity across Africa and beyond.",
     bg: "bg-[hsl(20,80%,75%)]",
     textColor: "text-[hsl(20,60%,20%)]",
     span: "col-span-2",
     rowSpan: "row-span-1",
   },
   {
-    title: "Empowerment Through Innovation",
-    text: "Foster inclusive growth and collaboration by enabling access to transformative digital solutions.",
+    title: "Empowerment Through Structured Opportunity",
+    text: "We move beyond isolated training programs by integrating mentorship, applied labs, enterprise incubation, and employer pipelines into a single coordinated ecosystem.",
     bg: "bg-[hsl(25,70%,82%)]",
     textColor: "text-[hsl(25,60%,22%)]",
     span: "col-span-1",
     rowSpan: "",
   },
   {
-    title: "Connecting Africa to the World",
-    text: "Build a seamless digital hub that links Africa with global opportunities.",
+    title: "Global Pathways & Cross-Continental Collaboration",
+    text: "Through partnerships spanning Africa, the United States, and Canada, AlikoHub creates global exposure, mentorship exchange, and workforce integration that strengthens Africa's role in the global innovation economy.",
     bg: "bg-[hsl(210,50%,82%)]",
     textColor: "text-[hsl(210,60%,22%)]",
     span: "col-span-1",
@@ -97,7 +97,7 @@ export function MissionSection() {
                 }}
               />
               <div className="relative z-10">
-                <h3 className={`font-heading text-xl md:text-2xl font-bold ${card.textColor} mb-3`}>
+                <h3 className={`font-heading text-xl md:text-2xl font-extrabold ${card.textColor} mb-3 leading-tight`}>
                   {card.title}
                 </h3>
                 <p className={`text-sm md:text-base leading-relaxed ${card.textColor} opacity-80`}>
