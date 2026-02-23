@@ -122,7 +122,7 @@ const About = () => {
         </div>
         <div className="container relative mx-auto px-6 py-32 lg:py-40">
           <motion.div className="mx-auto max-w-3xl text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-white/90">Who We Are</span>
+            <span className="mb-4 inline-block rounded-full border border-amber-400/40 bg-amber-400/10 px-5 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-amber-300 backdrop-blur-sm">Who We Are</span>
             <h1 className="font-heading text-5xl font-extrabold text-white sm:text-6xl lg:text-7xl drop-shadow-lg">
               Youth <span className="text-gradient-amber">Resourcefulness Ecosystem</span>
             </h1>
