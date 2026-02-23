@@ -7,6 +7,7 @@ import { PolicyAlignmentSection } from "@/components/PolicyAlignmentSection";
 import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb, Landmark, Heart, Brain, Briefcase, GraduationCap, ArrowRight, Layers, Building2, CheckCircle2, Shield, Users2, Eye, MapPinned, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef, useState } from "react";
+import aboutHeroBg from "@/assets/about-hero-bg.jpg";
 
 const cardColors = [
   { bg: "bg-[hsl(210,40%,88%)]", text: "text-[hsl(210,60%,25%)]", iconBg: "bg-[hsl(210,50%,78%)]" },
@@ -112,16 +113,20 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* 1. Who We Are - Intro */}
-      <section className="py-24 lg:py-32">
-        <div className="container mx-auto px-6">
+      {/* 1. Who We Are - Hero with background */}
+      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={aboutHeroBg} alt="" className="h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background" />
+        </div>
+        <div className="container relative mx-auto px-6 py-32 lg:py-40">
           <motion.div className="mx-auto max-w-3xl text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">Who We Are</span>
             <h1 className="font-heading text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
-              A Pan-African Youth <span className="text-gradient-amber">Empowerment Ecosystem</span>
+              Youth <span className="text-gradient-amber">Resourcefulness Ecosystem</span>
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              AlikoHub is designed to unlock human potential where opportunity has historically been uneven. Rooted in dignity, compassion, and systems thinking, we bring together education, innovation, employment pathways, and partnerships to enable young people to thrive.
+              We <strong className="text-foreground">Train</strong> through Aliko Academy, <strong className="text-foreground">Guide</strong> through Aliko Consultancy, <strong className="text-foreground">Connect</strong> through Aliko Events, and <strong className="text-foreground">Scale</strong> through our partners' support — unlocking human potential where opportunity has historically been uneven.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
               Established in 2025 as a sister company to Genshifter Technologies, AlikoHub operates at the intersection of Digital Health, One Health, STEM, and entrepreneurship.
