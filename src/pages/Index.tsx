@@ -5,7 +5,7 @@ import { EcosystemFlow } from "@/components/EcosystemFlow";
 import { ChallengesResponseSection } from "@/components/ChallengesResponseSection";
 import { StatsSection } from "@/components/StatsSection";
 import { WhyThisMattersSection } from "@/components/WhyThisMattersSection";
-import { CTASection } from "@/components/CTASection";
+
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -18,7 +18,7 @@ const Index = () => {
       <ServicesSection />
       <EcosystemFlow />
       <StatsSection />
-      <CTASection />
+      
       <Footer />
     </div>
   );
