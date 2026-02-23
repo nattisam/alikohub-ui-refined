@@ -62,10 +62,10 @@ export function MissionSection() {
           viewport={{ once: true }}
         >
           <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
-            Who We Are
+            Mission & Vision
           </span>
           <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-            Who <span className="text-gradient-amber">We Are</span>
+            What Drives <span className="text-gradient-amber">Us</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             A human-centered development model that links skills to opportunity, learning to livelihoods, and innovation to public value.
