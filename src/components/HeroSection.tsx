@@ -53,9 +53,11 @@ export function HeroSection() {
               size="lg"
               variant="outline"
               className="border-border text-foreground hover:bg-secondary"
-              asChild
+              onClick={() => {
+                document.getElementById("ventures")?.scrollIntoView({ behavior: "smooth" });
+              }}
             >
-              <a href="/programs">View Our Ventures</a>
+              View Our Ventures
             </Button>
           </div>
         </motion.div>
