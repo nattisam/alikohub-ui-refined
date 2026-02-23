@@ -204,9 +204,9 @@ const About = () => {
       <section className="py-20 lg:py-28 bg-card/50">
         <div className="container mx-auto px-6">
           <motion.div className="mx-auto mb-12 max-w-2xl text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">Our Programs</span>
+            <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">Our Main Pillars</span>
             <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-              AlikoHub <span className="text-gradient-amber">Ventures</span>
+              Programs Through Our <span className="text-gradient-amber">Ventures</span>
             </h2>
           </motion.div>
 
