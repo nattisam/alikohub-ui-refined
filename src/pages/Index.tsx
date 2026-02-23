@@ -2,8 +2,7 @@ import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { EcosystemFlow } from "@/components/EcosystemFlow";
-import { ChallengesSection } from "@/components/ChallengesSection";
-import { ResponseSection } from "@/components/ResponseSection";
+import { ChallengesResponseSection } from "@/components/ChallengesResponseSection";
 import { StatsSection } from "@/components/StatsSection";
 import { MissionInActionSection } from "@/components/MissionInActionSection";
 import { WhyThisMattersSection } from "@/components/WhyThisMattersSection";
@@ -16,8 +15,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <ServicesSection />
-      <ChallengesSection />
-      <ResponseSection />
+      <ChallengesResponseSection />
       <EcosystemFlow />
       <StatsSection />
       <MissionInActionSection />
