@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { MissionSection } from "@/components/MissionSection";
 import { TeamSection } from "@/components/TeamSection";
 import { PolicyAlignmentSection } from "@/components/PolicyAlignmentSection";
-import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb, Landmark, Heart, Brain, Briefcase, GraduationCap, ArrowRight, Layers, Building2, CheckCircle2, Shield, Users2, Eye, MapPinned, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb, Landmark, Heart, Brain, Briefcase, GraduationCap, ArrowRight, Layers, Building2, CheckCircle2, Shield, Users2, Eye, MapPinned, Star, ChevronLeft, ChevronRight, Droplets } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef, useState } from "react";
 import aboutHeroBg from "@/assets/about-hero-bg.jpg";
@@ -45,8 +45,9 @@ const timeline = [
 const pillars = [
   {
     icon: GraduationCap, title: "Aliko Academy",
-    description: "Career-driven courses across Technology, Health, and STEM, delivering market-aligned training.",
-    bullets: ["AI, Machine Learning, Data Analytics, Cloud Computing", "Software Development, Databases, Testing", "Finance, Accounting, Design, Marketing", "Academic Preparation and Language Learning"],
+    description: "Career-driven courses powered by our purpose-built LMS, delivering market-aligned training across Technology, Health, and STEM.",
+    bullets: ["Custom-designed LMS with 30+ structured courses", "AI, Machine Learning, Data Analytics, Cloud Computing", "Software Development, Databases, Testing", "Finance, Accounting, Design, Marketing"],
+    link: "https://academy.alikohub.com/",
   },
   {
     icon: Heart, title: "Digital Health & One Health",
@@ -62,6 +63,12 @@ const pillars = [
     icon: Briefcase, title: "Consultancy & Events",
     description: "Guiding youth through career pathways and connecting them to employers and investors.",
     bullets: ["Career advice, skill assessment, resume building", "Employer and talent matchmaking", "Investor forums and innovation challenges", "Government and private sector partnership spaces"],
+  },
+  {
+    icon: Droplets, title: "Aliko WASH",
+    description: "Advancing water, sanitation, and hygiene solutions through technology-driven community impact programs.",
+    bullets: ["Community WASH infrastructure assessment", "Hygiene behavior change and education", "Water quality monitoring and data systems", "Sustainable sanitation technology deployment"],
+    link: "https://alikowash.lovable.app/",
   },
 ];
 
@@ -199,7 +206,7 @@ const About = () => {
           <motion.div className="mx-auto mb-12 max-w-2xl text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">Our Programs</span>
             <h2 className="font-heading text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
-              Four Pillars of <span className="text-gradient-amber">Empowerment</span>
+              AlikoHub <span className="text-gradient-amber">Ventures</span>
             </h2>
           </motion.div>
 
@@ -221,10 +228,21 @@ const About = () => {
                       </li>
                     ))}
                   </ul>
+                  {pillar.link && (
+                    <a href={pillar.link} target="_blank" rel="noopener noreferrer" className={`mt-4 inline-flex items-center gap-1.5 text-xs font-semibold ${color.text} opacity-80 hover:opacity-100 transition-opacity`}>
+                      Visit {pillar.title} <ArrowRight className="h-3.5 w-3.5" />
+                    </a>
+                  )}
                 </motion.div>
               );
             })}
           </HorizontalScroller>
+
+          <motion.div className="mt-8 text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+            <Button variant="outline" className="group" asChild>
+              <a href="/programs">View All Ventures <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" /></a>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
