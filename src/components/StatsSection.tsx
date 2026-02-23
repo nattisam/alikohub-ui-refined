@@ -3,7 +3,7 @@ import { BookOpen, Globe, Building2, Users } from "lucide-react";
 
 const stats = [
   { label: "Youth Targeted", value: "50,000", icon: Users },
-  { label: "Employment Rate", value: "75–85%", icon: BookOpen },
+  { label: "Employment Rate", value: "75 to 85%", icon: BookOpen },
   { label: "Female Participation", value: "45%+", icon: Globe },
   { label: "Regional Hubs", value: "10", icon: Building2 },
 ];

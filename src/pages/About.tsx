@@ -29,12 +29,12 @@ const differentiators = [
 
 const timeline = [
   {
-    phase: "Phase 1", years: "Years 1–2", title: "Ecosystem Establishment",
+    phase: "Phase 1", years: "Years 1 to 2", title: "Ecosystem Establishment",
     items: ["Launch Regional Innovation Hubs", "Deploy Aliko LMS and hybrid learning system", "Build partnerships with universities, ministries, and private sector", "Establish MEL systems"],
   },
   {
-    phase: "Phase 2", years: "Years 3–4", title: "Consolidation & Evidence",
-    items: ["Identify high-performing hubs based on outcomes", "Strengthen applied research and innovation incubation", "Publish policy briefs and workforce impact reports", "Deepen public–private partnerships"],
+    phase: "Phase 2", years: "Years 3 to 4", title: "Consolidation & Evidence",
+    items: ["Identify high-performing hubs based on outcomes", "Strengthen applied research and innovation incubation", "Publish policy briefs and workforce impact reports", "Deepen public and private partnerships"],
   },
   {
     phase: "Phase 3", years: "Year 5+", title: "Centers of Excellence",
@@ -73,7 +73,7 @@ const partnerCategories = [
 ];
 
 const revenueModels = [
-  "Public–Private Partnership Co-Financing",
+  "Public and Private Partnership Co-Financing",
   "Advanced Certifications & Premium Training",
   "Consulting Services for Government & NGOs",
   "Advisory Services for Enterprise Development",
@@ -85,7 +85,7 @@ const governanceItems = [
   { icon: Users2, title: "Multi-Stakeholder Governance", text: "Board includes government, development partners, private sector, academia, and youth representatives." },
   { icon: Eye, title: "Transparency & Accountability", text: "Annual audited financials, public impact reports, and independent evaluations published openly." },
   { icon: MapPinned, title: "Local Ownership", text: "Regional hubs governed by local advisory committees with contextual adaptation authority." },
-  { icon: Star, title: "Youth Voice", text: "Youth representatives serve on governance bodies at all levels, from hub committees to central board." },
+  { icon: Star, title: "Youth Voice", text: "Youth representatives serve on governance bodies at all levels, from hub committees to the central board." },
 ];
 
 function HorizontalScroller({ children }: { children: React.ReactNode }) {
@@ -114,22 +114,23 @@ const About = () => {
       <Navbar />
 
       {/* 1. Who We Are - Hero with background */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={aboutHeroBg} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background" />
+          <img src={aboutHeroBg} alt="" className="h-full w-full object-cover scale-105" />
+          <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
         </div>
         <div className="container relative mx-auto px-6 py-32 lg:py-40">
           <motion.div className="mx-auto max-w-3xl text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">Who We Are</span>
-            <h1 className="font-heading text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="font-heading text-4xl font-bold text-white sm:text-5xl lg:text-6xl drop-shadow-lg">
               Youth <span className="text-gradient-amber">Resourcefulness Ecosystem</span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-              We <strong className="text-foreground">Train</strong> through Aliko Academy, <strong className="text-foreground">Guide</strong> through Aliko Consultancy, <strong className="text-foreground">Connect</strong> through Aliko Events, and <strong className="text-foreground">Scale</strong> through our partners' support — unlocking human potential where opportunity has historically been uneven.
+            <p className="mt-6 text-lg leading-relaxed text-white/85">
+              We <strong className="text-white">Train</strong> through Aliko Academy, <strong className="text-white">Guide</strong> through Aliko Consultancy, <strong className="text-white">Connect</strong> through Aliko Events, and <strong className="text-white">Scale</strong> through our partners' support.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              Established in 2025 as a sister company to Genshifter Technologies, AlikoHub operates at the intersection of Digital Health, One Health, STEM, and entrepreneurship.
+            <p className="mt-4 text-lg leading-relaxed text-white/75">
+              Rooted in dignity, compassion, and systems thinking, AlikoHub brings together education, innovation, employment pathways, and partnerships to enable young people to thrive as contributors, leaders, and problem solvers. Established in 2025 as a sister company to Genshifter Technologies, we operate at the intersection of Digital Health, One Health, STEM, and entrepreneurship.
             </p>
           </motion.div>
         </div>
