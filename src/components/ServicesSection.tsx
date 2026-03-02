@@ -23,7 +23,7 @@ const services = [
       "Career advisory, professional development, and global mentorship services.",
     icon: Globe2,
     image: serviceConsultancy,
-    link: "#",
+    link: "https://alikoconsultancy.lovable.app",
   },
   {
     title: "Aliko Events",
@@ -31,7 +31,7 @@ const services = [
       "Industry matchmaking, innovation forums, and ecosystem-building engagements.",
     icon: CalendarDays,
     image: serviceEvents,
-    link: "#",
+    link: "https://aliko-event-suite.lovable.app/",
   },
   {
     title: "Aliko Engineering Technology",
@@ -131,12 +131,13 @@ export function ServicesSection() {
             ref={scrollRef}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
-            className="flex gap-6 overflow-x-hidden scroll-smooth"
+            className="flex gap-4 sm:gap-6 overflow-x-auto sm:overflow-x-hidden scroll-smooth pb-4 sm:pb-0 snap-x snap-mandatory scrollbar-hide"
+            style={{ WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {displayServices.map((service, i) => (
               <div
                 key={`${service.title}-${i}`}
-                className="group relative w-[300px] shrink-0 overflow-hidden rounded-2xl border border-border/50 bg-card transition-all duration-500 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)]"
+                className="group relative w-[260px] sm:w-[300px] shrink-0 snap-start overflow-hidden rounded-2xl border border-border/50 bg-card transition-all duration-500 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)]"
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
