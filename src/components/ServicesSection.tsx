@@ -1,7 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { GraduationCap, Globe2, HardHat, CalendarDays, Droplets, ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { GraduationCap, Globe2, HardHat, CalendarDays, Droplets, ArrowUpRight } from "lucide-react";
 
 import serviceAcademy from "@/assets/service-academy.jpg";
 import serviceConsultancy from "@/assets/service-consultancy.png";
@@ -50,7 +49,7 @@ const services = [
 
 function ServiceCard({ service }: { service: typeof services[number] }) {
   return (
-    <div className="group relative w-[260px] sm:w-[300px] shrink-0 snap-start overflow-hidden rounded-2xl border border-border/50 bg-card transition-all duration-500 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)]">
+    <div className="group relative w-[260px] sm:w-[300px] shrink-0 overflow-hidden rounded-2xl border border-border/50 bg-card transition-all duration-500 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)]">
       <div className="relative h-48 overflow-hidden">
         <img
           src={service.image}
@@ -81,39 +80,10 @@ function ServiceCard({ service }: { service: typeof services[number] }) {
 }
 
 export function ServicesSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
   const [isPaused, setIsPaused] = useState(false);
 
-  // Desktop only: auto-scroll with requestAnimationFrame
-  useEffect(() => {
-    if (isMobile) return;
-    const container = scrollRef.current;
-    if (!container) return;
-
-    let animationId: number;
-
-    const animate = () => {
-      if (!isPaused && container) {
-        container.scrollLeft += 0.5;
-        if (container.scrollLeft >= container.scrollWidth / 2) {
-          container.scrollLeft = 0;
-        }
-      }
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animationId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(animationId);
-  }, [isPaused, isMobile]);
-
-  const scroll = (dir: "left" | "right") => {
-    if (!scrollRef.current) return;
-    scrollRef.current.scrollBy({ left: dir === "left" ? -320 : 320, behavior: "smooth" });
-  };
-
-  // Desktop: duplicate for infinite loop. Mobile: single set for swipe.
-  const displayServices = isMobile ? services : [...services, ...services];
+  // Duplicate cards for seamless infinite marquee
+  const displayServices = [...services, ...services];
 
   return (
     <section id="ventures" className="relative py-24 lg:py-32">
@@ -136,28 +106,26 @@ export function ServicesSection() {
           </p>
         </motion.div>
 
-        <div className="relative">
-          {/* Arrow buttons - hidden on mobile */}
-          <button
-            onClick={() => scroll("left")}
-            className="hidden sm:flex absolute -left-4 top-1/2 z-10 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-card/80 border border-border/50 text-foreground backdrop-blur-sm transition-all hover:bg-primary/20 hover:border-primary/30"
-            aria-label="Scroll left"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className="hidden sm:flex absolute -right-4 top-1/2 z-10 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-card/80 border border-border/50 text-foreground backdrop-blur-sm transition-all hover:bg-primary/20 hover:border-primary/30"
-            aria-label="Scroll right"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
+        {/* Marquee container */}
+        <div
+          className="relative overflow-hidden"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          onTouchStart={() => setIsPaused(true)}
+          onTouchEnd={() => setIsPaused(false)}
+        >
+          {/* Fade edges */}
+          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-12 sm:w-20 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-12 sm:w-20 bg-gradient-to-l from-background to-transparent" />
 
+          {/* Sliding track */}
           <div
-            ref={scrollRef}
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth pb-4 sm:pb-0 snap-x snap-mandatory scrollbar-hide"
+            className="flex gap-4 sm:gap-6"
+            style={{
+              animation: 'ventures-marquee 35s linear infinite',
+              animationPlayState: isPaused ? 'paused' : 'running',
+              width: 'max-content',
+            }}
           >
             {displayServices.map((service, i) => (
               <ServiceCard key={`${service.title}-${i}`} service={service} />
