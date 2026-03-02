@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { MissionSection } from "@/components/MissionSection";
 import { TeamSection } from "@/components/TeamSection";
 import { PolicyAlignmentSection } from "@/components/PolicyAlignmentSection";
-import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb, Landmark, Heart, Brain, Briefcase, GraduationCap, ArrowRight, Layers, Building2, CheckCircle2, Shield, Users2, Eye, MapPinned, Star, ChevronLeft, ChevronRight, Droplets } from "lucide-react";
+import { Target, Sparkles, Globe, Users, BookOpen, Lightbulb, Landmark, Heart, Brain, Briefcase, GraduationCap, ArrowRight, Layers, Building2, CheckCircle2, Shield, Users2, Eye, MapPinned, Star, ChevronLeft, ChevronRight, Droplets, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRef, useState } from "react";
 import aboutHeroBg from "@/assets/about-hero-bg.jpg";
@@ -60,9 +60,16 @@ const pillars = [
     bullets: ["Engineering fundamentals and digital design", "Modeling, simulation, and GIS", "Civil, electrical, mechanical, and architectural fields", "Applied problem-solving aligned with employer expectations"],
   },
   {
-    icon: Briefcase, title: "Consultancy & Events",
+    icon: Briefcase, title: "Aliko Consultancy",
     description: "Guiding youth through career pathways and connecting them to employers and investors.",
     bullets: ["Career advice, skill assessment, resume building", "Employer and talent matchmaking", "Investor forums and innovation challenges", "Government and private sector partnership spaces"],
+    link: "https://alikoconsultancy.lovable.app",
+  },
+  {
+    icon: CalendarDays, title: "Aliko Events",
+    description: "Industry matchmaking, innovation forums, and ecosystem-building engagements.",
+    bullets: ["Investor forums and innovation challenges", "Industry matchmaking events", "Ecosystem-building engagements", "Government and private sector partnership spaces"],
+    link: "https://aliko-event-suite.lovable.app/",
   },
   {
     icon: Droplets, title: "Aliko WASH",
