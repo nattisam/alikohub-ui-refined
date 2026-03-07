@@ -49,7 +49,7 @@ const services = [
 
 function ServiceCard({ service }: { service: typeof services[number] }) {
   return (
-    <div className="group relative w-[260px] sm:w-[300px] shrink-0 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)]">
+    <div className="group relative w-[260px] sm:w-[300px] shrink-0 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-300 hover:border-primary/30">
       <div className="relative h-48 overflow-hidden">
         <img
           src={service.image}
