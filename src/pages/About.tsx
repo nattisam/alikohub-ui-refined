@@ -171,7 +171,7 @@ const About = () => {
                   <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl ${color.iconBg}`}>
                     <item.icon className={`h-6 w-6 ${color.text}`} />
                   </div>
-                  <p className={`text-sm leading-relaxed ${color.text} opacity-80`}>{item.text}</p>
+                  <p className={`text-sm leading-relaxed ${color.text}`}>{item.text}</p>
                 </motion.div>
               );
             })}
