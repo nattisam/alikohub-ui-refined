@@ -291,7 +291,7 @@ const About = () => {
       <TeamSection />
 
       {/* 8. Partners & Governance - Side by side */}
-      <section className="py-20 lg:py-28 bg-card/50">
+      <section className="py-20 lg:py-28 bg-muted dark:bg-card/50">
         <div className="container mx-auto px-6">
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Partners */}

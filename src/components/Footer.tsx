@@ -9,7 +9,7 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer id="contact" className="border-t border-border/50 bg-card/50 py-16">
+    <footer id="contact" className="border-t border-border/50 bg-card py-16 dark:bg-card/50">
       <div className="container mx-auto px-6">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-5">
           {/* Brand */}
