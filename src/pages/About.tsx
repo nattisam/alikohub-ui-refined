@@ -109,10 +109,10 @@ function HorizontalScroller({ children }: { children: React.ReactNode }) {
   };
   return (
     <div className="relative">
-      <button onClick={() => scroll("left")} className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 border border-border/50 text-foreground backdrop-blur-sm hover:bg-primary/20" aria-label="Scroll left">
+      <button onClick={() => scroll("left")} className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card border border-border text-foreground hover:bg-primary/20" aria-label="Scroll left">
         <ChevronLeft className="h-5 w-5" />
       </button>
-      <button onClick={() => scroll("right")} className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 border border-border/50 text-foreground backdrop-blur-sm hover:bg-primary/20" aria-label="Scroll right">
+      <button onClick={() => scroll("right")} className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card border border-border text-foreground hover:bg-primary/20" aria-label="Scroll right">
         <ChevronRight className="h-5 w-5" />
       </button>
       <div ref={ref} className="flex gap-5 overflow-x-auto scroll-smooth pb-4 scrollbar-hide" style={{ scrollbarWidth: "none" }}>
