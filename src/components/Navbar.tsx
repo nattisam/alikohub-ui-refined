@@ -67,8 +67,8 @@ export function Navbar() {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    location.pathname === link.href ? "text-primary" : "text-muted-foreground"
+                  className={`text-sm font-semibold transition-colors hover:text-primary ${
+                    location.pathname === link.href ? "text-primary" : "text-[hsl(var(--navbar-fg))]"
                   }`}
                 >
                   {link.label}
