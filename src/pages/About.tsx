@@ -236,7 +236,7 @@ const About = () => {
                     ))}
                   </ul>
                   {pillar.link && (
-                    <a href={pillar.link} target="_blank" rel="noopener noreferrer" className={`mt-4 inline-flex items-center gap-1.5 text-xs font-semibold ${color.text} opacity-80 hover:opacity-100 transition-opacity`}>
+                    <a href={pillar.link} target="_blank" rel="noopener noreferrer" className={`mt-4 inline-flex items-center gap-1.5 text-xs font-semibold ${color.text} hover:opacity-80 transition-opacity`}>
                       Visit {pillar.title} <ArrowRight className="h-3.5 w-3.5" />
                     </a>
                   )}
