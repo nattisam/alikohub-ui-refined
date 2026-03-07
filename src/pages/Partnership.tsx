@@ -193,7 +193,7 @@ const Partnership = () => {
       </section>
 
       {/* Partnership Form */}
-      <section className="bg-muted/30 py-20 lg:py-28">
+      <section className="bg-muted dark:bg-muted/30 py-20 lg:py-28">
         <div className="container mx-auto px-6">
           <motion.div
             className="mx-auto max-w-3xl"

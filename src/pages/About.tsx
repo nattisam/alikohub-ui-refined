@@ -208,7 +208,7 @@ const About = () => {
       </section>
 
       {/* 5. Programs / 4 Pillars - Horizontal scroll */}
-      <section className="py-20 lg:py-28 bg-card/50">
+      <section className="py-20 lg:py-28 bg-muted dark:bg-card/50">
         <div className="container mx-auto px-6">
           <motion.div className="mx-auto mb-12 max-w-2xl text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">Our Main Pillars</span>
