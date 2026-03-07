@@ -29,7 +29,7 @@ export function Navbar() {
               <Mail className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">info@alikohub.com</span>
             </a>
-            <a href="tel:+12063535373" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+            <a href="tel:+12063535373" className="flex items-center gap-1.5 hover:text-primary transition-colors text-[hsl(var(--navbar-fg))] dark:text-muted-foreground">
               <Phone className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">+1 206 353 5373</span>
             </a>
