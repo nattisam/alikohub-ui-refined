@@ -6,6 +6,66 @@
 
 @layer base {
   :root {
+    --background: 200 30% 95%;
+    --foreground: 220 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 15%;
+
+    --primary: 37 78% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 20% 90%;
+    --secondary-foreground: 220 25% 15%;
+
+    --muted: 200 15% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 200 70% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 85%;
+    --input: 220 15% 85%;
+    --ring: 37 78% 56%;
+
+    --radius: 0.75rem;
+
+    /* Custom AlikoHub tokens */
+    --navy: 220 30% 15%;
+    --navy-light: 200 20% 96%;
+    --navy-medium: 200 15% 90%;
+    --amber: 37 78% 56%;
+    --amber-light: 37 85% 65%;
+    --amber-glow: 37 90% 70%;
+    --sky: 200 70% 55%;
+    --sky-light: 200 80% 70%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(200 30% 93%) 0%, hsl(200 35% 90%) 50%, hsl(200 30% 95%) 100%);
+    --gradient-amber: linear-gradient(135deg, hsl(37 78% 56%) 0%, hsl(30 85% 50%) 100%);
+    --gradient-card: linear-gradient(160deg, hsl(0 0% 100%) 0%, hsl(200 20% 97%) 100%);
+    --gradient-glow: radial-gradient(ellipse at 30% 50%, hsl(37 78% 56% / 0.06) 0%, transparent 60%);
+
+    --shadow-card: 0 4px 24px -4px hsl(220 20% 50% / 0.1);
+    --shadow-card-hover: 0 12px 40px -8px hsl(37 78% 56% / 0.15);
+    --shadow-amber: 0 4px 20px -4px hsl(37 78% 56% / 0.3);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 25% 15%;
+    --sidebar-primary: 37 78% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 200 20% 90%;
+    --sidebar-accent-foreground: 220 25% 15%;
+    --sidebar-border: 220 15% 85%;
+    --sidebar-ring: 37 78% 56%;
+  }
+
+  .dark {
     --background: 220 30% 6%;
     --foreground: 210 40% 96%;
 
@@ -34,9 +94,6 @@
     --input: 215 25% 18%;
     --ring: 37 78% 56%;
 
-    --radius: 0.75rem;
-
-    /* Custom AlikoHub tokens */
     --navy: 220 30% 6%;
     --navy-light: 220 28% 10%;
     --navy-medium: 215 30% 16%;
