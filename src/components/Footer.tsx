@@ -17,10 +17,10 @@ export function Footer() {
             <div className="mb-4">
               <img src={alikohubLogo} alt="AlikoHub" className="h-14" />
             </div>
-            <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
+            <p className="max-w-sm text-sm leading-relaxed text-white/70">
               Honoring youth potential where opportunity meets dignity, transforming Africa's future through Digital Health, STEM, and innovation pathways.
             </p>
-            <div className="mt-6 space-y-2 text-sm text-muted-foreground">
+            <div className="mt-6 space-y-2 text-sm text-white/70">
               <a href="mailto:info@alikohub.com" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Mail className="h-4 w-4" /> info@alikohub.com
               </a>
