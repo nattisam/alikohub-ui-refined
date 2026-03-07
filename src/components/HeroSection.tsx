@@ -70,8 +70,8 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="relative mx-auto max-w-lg">
-            {/* Ambient glow behind image */}
-            <div className="absolute -inset-8 rounded-full bg-primary/10 blur-3xl animate-pulse-glow" />
+            {/* Ambient glow behind image - dark mode only */}
+            <div className="absolute -inset-8 rounded-full bg-primary/10 blur-3xl animate-pulse-glow hidden dark:block" />
             <img
               src={heroImg}
               alt="Happy student representing AlikoHub's mission"

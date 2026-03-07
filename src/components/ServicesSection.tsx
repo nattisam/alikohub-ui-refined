@@ -114,9 +114,7 @@ export function ServicesSection() {
           onTouchStart={() => setIsPaused(true)}
           onTouchEnd={() => setIsPaused(false)}
         >
-          {/* Fade edges */}
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-12 sm:w-20 bg-gradient-to-r from-background to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-12 sm:w-20 bg-gradient-to-l from-background to-transparent" />
+          {/* No fade edges — clean look */}
 
           {/* Sliding track */}
           <div
