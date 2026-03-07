@@ -39,13 +39,13 @@ export function Footer() {
           {/* Link columns */}
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
-              <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-foreground mb-4">
+              <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-white mb-4">
                 {title}
               </h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-sm text-muted-foreground transition-colors hover:text-primary">
+                    <a href="#" className="text-sm text-white/70 transition-colors hover:text-primary">
                       {link}
                     </a>
                   </li>
