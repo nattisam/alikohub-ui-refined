@@ -200,7 +200,7 @@ const About = () => {
                   <item.icon className={`h-7 w-7 ${item.color.text}`} />
                 </div>
                 <h3 className={`font-heading text-xl font-bold ${item.color.text} mb-2`}>{item.title}</h3>
-                <p className={`text-sm leading-relaxed ${item.color.text} opacity-75`}>{item.description}</p>
+                <p className={`text-sm leading-relaxed ${item.color.text}`}>{item.description}</p>
               </motion.div>
             ))}
           </div>
