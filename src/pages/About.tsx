@@ -274,7 +274,7 @@ const About = () => {
                   <h3 className={`font-heading text-lg font-bold ${color.text} mb-3`}>{phase.title}</h3>
                   <ul className="space-y-1.5">
                     {phase.items.map((item, j) => (
-                      <li key={j} className={`flex items-start gap-2 text-sm ${color.text} opacity-75`}>
+                      <li key={j} className={`flex items-start gap-2 text-sm ${color.text}`}>
                         <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${color.iconBg}`} />
                         {item}
                       </li>
