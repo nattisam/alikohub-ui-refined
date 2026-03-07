@@ -382,7 +382,7 @@ const About = () => {
         <div className="container mx-auto px-6">
           <motion.div className="rounded-3xl bg-[hsl(40,85%,75%)] p-12 lg:p-16 text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="font-heading text-3xl font-bold text-[hsl(30,70%,20%)] sm:text-4xl">Ready to Partner?</h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-[hsl(30,70%,20%)] opacity-80">Join us in building Africa's largest youth empowerment ecosystem.</p>
+            <p className="mx-auto mt-4 max-w-xl text-lg text-[hsl(30,70%,20%)]">Join us in building Africa's largest youth empowerment ecosystem.</p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button size="lg" className="group bg-primary px-8 text-primary-foreground shadow-[var(--shadow-amber)] hover:bg-amber-light" asChild>
                 <a href="mailto:info@alikohub.com">Contact Us <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" /></a>
