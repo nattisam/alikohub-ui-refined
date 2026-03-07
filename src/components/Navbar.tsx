@@ -81,12 +81,12 @@ export function Navbar() {
           <div className="hidden items-center gap-3 lg:flex">
             <button
               onClick={toggleTheme}
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
+              className="flex h-9 w-9 items-center justify-center rounded-lg text-[hsl(var(--navbar-fg))] transition-colors hover:text-primary"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
-            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+            <Button variant="ghost" size="sm" className="text-[hsl(var(--navbar-fg))] hover:text-primary">
               Login
             </Button>
             <Button size="sm" className="bg-primary text-primary-foreground hover:bg-amber-light shadow-[var(--shadow-amber)]">
