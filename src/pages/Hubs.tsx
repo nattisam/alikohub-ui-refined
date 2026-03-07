@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { MapPin, Globe } from "lucide-react";
+import { cardColors } from "@/lib/card-colors";
 
 const hubs = [
   { country: "Ethiopia", city: "Addis Ababa", target: "10,000", focus: "Digital Health, One Health, STEM, FinTech, AgriTech", status: "Active", timeline: "Year 1", region: "Africa" },
@@ -20,7 +21,7 @@ const hubs = [
 ];
 
 const statusColors: Record<string, string> = {
-  Active: "bg-green-500/20 text-green-400",
+  Active: "bg-green-500/20 text-green-700 dark:text-green-400",
   Planned: "bg-primary/20 text-primary",
   Future: "bg-muted text-muted-foreground",
 };
@@ -50,35 +51,37 @@ const Hubs = () => {
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {hubs.map((hub, i) => (
-              <motion.div
-                key={hub.country}
-                className="group rounded-2xl border border-border/50 p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.02]"
-                style={{ background: "var(--gradient-card)" }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06 }}
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-heading text-xl font-bold text-foreground">{hub.country}</h3>
-                  <span className={`rounded-full px-3 py-1 text-xs font-semibold ${statusColors[hub.status]}`}>
-                    {hub.status}
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-3">
-                  <MapPin className="h-4 w-4 text-primary" />
-                  {hub.city} · {hub.timeline}
-                  <span className="ml-auto flex items-center gap-1 text-xs opacity-70">
-                    <Globe className="h-3 w-3" />
-                    {hub.region}
-                  </span>
-                </div>
-                <p className="text-sm text-muted-foreground mb-3">{hub.focus}</p>
-                <div className="text-2xl font-heading font-bold text-primary">{hub.target}</div>
-                <p className="text-xs text-muted-foreground">Youth Target</p>
-              </motion.div>
-            ))}
+            {hubs.map((hub, i) => {
+              const color = cardColors[i % cardColors.length];
+              return (
+                <motion.div
+                  key={hub.country}
+                  className={`group rounded-2xl ${color.bg} p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg dark:bg-card dark:border dark:border-border/50`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06 }}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className={`font-heading text-xl font-bold ${color.text} dark:text-foreground`}>{hub.country}</h3>
+                    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${statusColors[hub.status]}`}>
+                      {hub.status}
+                    </span>
+                  </div>
+                  <div className={`flex items-center gap-1.5 text-sm ${color.text} dark:text-muted-foreground mb-3`}>
+                    <MapPin className="h-4 w-4" />
+                    {hub.city} · {hub.timeline}
+                    <span className="ml-auto flex items-center gap-1 text-xs opacity-70">
+                      <Globe className="h-3 w-3" />
+                      {hub.region}
+                    </span>
+                  </div>
+                  <p className={`text-sm ${color.text} dark:text-muted-foreground mb-3`}>{hub.focus}</p>
+                  <div className={`text-2xl font-heading font-bold ${color.text} dark:text-primary`}>{hub.target}</div>
+                  <p className={`text-xs ${color.text} dark:text-muted-foreground`}>Youth Target</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

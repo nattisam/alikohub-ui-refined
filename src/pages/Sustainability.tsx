@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Handshake, Award, Briefcase, BookOpen, Users, RefreshCw } from "lucide-react";
+import { cardColors } from "@/lib/card-colors";
 
 const revenueModels = [
   {
@@ -61,23 +62,25 @@ const Sustainability = () => {
           </motion.div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {revenueModels.map((model, i) => (
-              <motion.div
-                key={model.title}
-                className="group rounded-2xl border border-border/50 p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.02]"
-                style={{ background: "var(--gradient-card)" }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-              >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <model.icon className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="font-heading text-lg font-semibold text-foreground">{model.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{model.description}</p>
-              </motion.div>
-            ))}
+            {revenueModels.map((model, i) => {
+              const color = cardColors[i % cardColors.length];
+              return (
+                <motion.div
+                  key={model.title}
+                  className={`group rounded-2xl ${color.bg} p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg dark:bg-card dark:border dark:border-border/50`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08 }}
+                >
+                  <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl ${color.iconBg} dark:bg-primary/10`}>
+                    <model.icon className={`h-6 w-6 ${color.text} dark:text-primary`} />
+                  </div>
+                  <h3 className={`font-heading text-lg font-semibold ${color.text} dark:text-foreground`}>{model.title}</h3>
+                  <p className={`mt-2 text-sm leading-relaxed ${color.text} dark:text-muted-foreground`}>{model.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

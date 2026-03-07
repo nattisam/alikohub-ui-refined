@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Heart, ShieldCheck, Home, Handshake } from "lucide-react";
+import { cardColors } from "@/lib/card-colors";
 
 const principles = [
   {
@@ -51,23 +52,25 @@ const Ethics = () => {
           </motion.div>
 
           <div className="grid gap-8 sm:grid-cols-2 mx-auto max-w-4xl">
-            {principles.map((p, i) => (
-              <motion.div
-                key={p.title}
-                className="group rounded-2xl border border-border/50 p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.02]"
-                style={{ background: "var(--gradient-card)" }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <p.icon className="h-7 w-7 text-primary" />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-foreground">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.description}</p>
-              </motion.div>
-            ))}
+            {principles.map((p, i) => {
+              const color = cardColors[i % cardColors.length];
+              return (
+                <motion.div
+                  key={p.title}
+                  className={`group rounded-2xl ${color.bg} p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg dark:bg-card dark:border dark:border-border/50`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <div className={`mb-5 flex h-14 w-14 items-center justify-center rounded-xl ${color.iconBg} dark:bg-primary/10`}>
+                    <p.icon className={`h-7 w-7 ${color.text} dark:text-primary`} />
+                  </div>
+                  <h3 className={`font-heading text-xl font-bold ${color.text} dark:text-foreground`}>{p.title}</h3>
+                  <p className={`mt-3 text-sm leading-relaxed ${color.text} dark:text-muted-foreground`}>{p.description}</p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

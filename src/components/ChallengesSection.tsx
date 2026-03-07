@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { GraduationCap, MapPin, Users, AlertTriangle, Leaf, Briefcase } from "lucide-react";
+import { cardColors } from "@/lib/card-colors";
 
 const challenges = [
   {
@@ -35,28 +36,29 @@ const challenges = [
 ];
 
 function ChallengeCard({ challenge, index }: { challenge: typeof challenges[0]; index: number }) {
+  const color = cardColors[index % cardColors.length];
   return (
     <motion.div
-      className="rounded-2xl border border-primary/20 bg-primary/5 p-6 min-h-[180px] flex flex-col shadow-sm hover:shadow-md transition-shadow duration-300"
+      className={`rounded-2xl ${color.bg} p-6 min-h-[180px] flex flex-col transition-all duration-300 hover:scale-[1.02] hover:shadow-md dark:bg-card dark:border dark:border-border/50`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.08 }}
     >
-      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/15 text-primary">
-        <challenge.icon className="h-6 w-6" />
+      <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-full ${color.iconBg} dark:bg-primary/15`}>
+        <challenge.icon className={`h-6 w-6 ${color.text} dark:text-primary`} />
       </div>
-      <h3 className="font-heading text-lg font-bold text-foreground">
+      <h3 className={`font-heading text-lg font-bold ${color.text} dark:text-foreground`}>
         {challenge.title}
       </h3>
-      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{challenge.summary}</p>
+      <p className={`mt-2 text-sm leading-relaxed ${color.text} dark:text-muted-foreground`}>{challenge.summary}</p>
     </motion.div>
   );
 }
 
 export function ChallengesSection() {
   return (
-    <section className="py-24 lg:py-32 bg-muted dark:bg-card/30">
+    <section className="py-24 lg:py-32 bg-muted/50 dark:bg-card/30">
       <div className="container mx-auto px-6">
         <motion.div
           className="mx-auto mb-16 max-w-2xl text-center"
