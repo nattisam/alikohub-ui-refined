@@ -58,7 +58,7 @@ export function Navbar() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                  className="flex items-center gap-1 text-sm font-semibold text-[hsl(var(--navbar-fg))] transition-colors hover:text-primary"
                 >
                   {link.label}
                   <ExternalLink className="h-3 w-3" />
