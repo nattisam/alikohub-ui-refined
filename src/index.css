@@ -146,6 +146,19 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
   }
+
+  /* Light mode: boost heading & label weight for live-site visual match */
+  :root:not(.dark) h1,
+  :root:not(.dark) h2,
+  :root:not(.dark) h3,
+  :root:not(.dark) h4 {
+    font-weight: 800;
+  }
+  
+  :root:not(.dark) label,
+  :root:not(.dark) .font-semibold {
+    font-weight: 700;
+  }
 }
 
 @layer utilities {
