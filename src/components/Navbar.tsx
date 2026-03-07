@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, Globe, Menu, X, ExternalLink } from "lucide-react";
+import { Mail, Phone, Globe, Menu, X, ExternalLink, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTheme } from "@/components/ThemeProvider";
 import alikohubLogo from "@/assets/alikohub-logo.png";
 
 const navLinks = [
@@ -16,6 +17,7 @@ const navLinks = [
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <>
@@ -77,6 +79,13 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden items-center gap-3 lg:flex">
+            <button
+              onClick={toggleTheme}
+              className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
             <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
               Login
             </Button>
@@ -130,7 +139,14 @@ export function Navbar() {
                     </Link>
                   )
                 )}
-                <div className="flex gap-3 pt-4 border-t border-border/50 mt-2">
+                <div className="flex gap-3 pt-4 border-t border-border/50 mt-2 items-center">
+                  <button
+                    onClick={toggleTheme}
+                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
+                    aria-label="Toggle theme"
+                  >
+                    {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                  </button>
                   <Button variant="ghost" size="sm" className="flex-1">Login</Button>
                   <Button size="sm" className="flex-1 bg-primary text-primary-foreground">Sign Up</Button>
                 </div>
