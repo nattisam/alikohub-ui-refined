@@ -6,23 +6,23 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 220 25% 12%;
+    --background: 207 60% 85%;
+    --foreground: 220 35% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 25% 12%;
+    --card: 207 50% 90%;
+    --card-foreground: 220 35% 12%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 12%;
+    --popover: 207 50% 92%;
+    --popover-foreground: 220 35% 12%;
 
     --primary: 37 78% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 15% 93%;
-    --secondary-foreground: 220 25% 12%;
+    --secondary: 207 40% 88%;
+    --secondary-foreground: 220 35% 12%;
 
-    --muted: 210 10% 94%;
-    --muted-foreground: 220 15% 35%;
+    --muted: 207 35% 88%;
+    --muted-foreground: 220 20% 28%;
 
     --accent: 200 70% 55%;
     --accent-foreground: 0 0% 100%;
@@ -30,38 +30,42 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 12% 82%;
-    --input: 220 12% 82%;
+    --border: 207 30% 75%;
+    --input: 207 30% 75%;
     --ring: 37 78% 56%;
 
     --radius: 0.75rem;
 
     /* Custom AlikoHub tokens */
-    --navy: 220 30% 15%;
-    --navy-light: 0 0% 98%;
-    --navy-medium: 210 15% 93%;
+    --navy: 220 40% 18%;
+    --navy-light: 207 60% 85%;
+    --navy-medium: 207 40% 88%;
     --amber: 37 78% 56%;
     --amber-light: 37 85% 65%;
     --amber-glow: 37 90% 70%;
     --sky: 200 70% 55%;
     --sky-light: 200 80% 70%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(200 25% 94%) 0%, hsl(200 30% 91%) 50%, hsl(200 25% 95%) 100%);
+    /* Navbar-specific token for light mode */
+    --navbar-bg: 220 40% 18%;
+    --navbar-fg: 210 30% 90%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(207 55% 83%) 0%, hsl(207 60% 80%) 50%, hsl(207 55% 85%) 100%);
     --gradient-amber: linear-gradient(135deg, hsl(37 78% 56%) 0%, hsl(30 85% 50%) 100%);
-    --gradient-card: linear-gradient(160deg, hsl(0 0% 100%) 0%, hsl(210 15% 97%) 100%);
+    --gradient-card: linear-gradient(160deg, hsl(207 50% 92%) 0%, hsl(207 45% 89%) 100%);
     --gradient-glow: none;
 
-    --shadow-card: 0 2px 12px -2px hsl(220 20% 50% / 0.08);
-    --shadow-card-hover: 0 8px 30px -6px hsl(37 78% 56% / 0.12);
+    --shadow-card: 0 2px 12px -2px hsl(220 20% 50% / 0.1);
+    --shadow-card-hover: 0 8px 30px -6px hsl(37 78% 56% / 0.15);
     --shadow-amber: 0 4px 16px -4px hsl(37 78% 56% / 0.25);
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 25% 15%;
+    --sidebar-background: 207 50% 90%;
+    --sidebar-foreground: 220 35% 15%;
     --sidebar-primary: 37 78% 56%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 200 20% 90%;
-    --sidebar-accent-foreground: 220 25% 15%;
-    --sidebar-border: 220 15% 85%;
+    --sidebar-accent: 207 40% 86%;
+    --sidebar-accent-foreground: 220 35% 15%;
+    --sidebar-border: 207 30% 78%;
     --sidebar-ring: 37 78% 56%;
   }
 
