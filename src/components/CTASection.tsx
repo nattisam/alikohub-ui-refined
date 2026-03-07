@@ -13,8 +13,8 @@ export function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          {/* Glow */}
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[300px] w-[600px] rounded-full bg-primary/8 blur-[100px]" />
+          {/* Glow - dark mode only */}
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[300px] w-[600px] rounded-full bg-primary/8 blur-[100px] hidden dark:block" />
 
           <div className="relative">
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">
