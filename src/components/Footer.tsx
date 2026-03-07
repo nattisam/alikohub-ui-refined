@@ -55,7 +55,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-border/50 pt-8 text-center text-sm text-muted-foreground">
+        <div className="mt-12 border-t border-white/10 pt-8 text-center text-sm text-white/50">
           © {new Date().getFullYear()} AlikoHub. All rights reserved.
         </div>
       </div>
