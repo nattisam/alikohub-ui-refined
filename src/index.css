@@ -169,9 +169,9 @@
     background-clip: text;
   }
 
-  /* Light mode: darker amber gradient for white bg readability */
+  /* Light mode: high-contrast amber gradient for light blue bg readability */
   :root:not(.dark) .text-gradient-amber {
-    background: linear-gradient(135deg, hsl(30 85% 40%), hsl(37 78% 48%));
+    background: linear-gradient(135deg, hsl(25 90% 30%), hsl(30 85% 38%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
