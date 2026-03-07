@@ -80,7 +80,7 @@ export function MissionInActionSection() {
                   <action.icon className={`h-6 w-6 ${color.text}`} />
                 </div>
                 <h3 className={`font-heading text-lg font-semibold ${color.text}`}>{action.title}</h3>
-                <p className={`mt-2 text-sm leading-relaxed ${color.text} opacity-75`}>{action.text}</p>
+                <p className={`mt-2 text-sm leading-relaxed ${color.text}`}>{action.text}</p>
               </motion.div>
             );
           })}

@@ -63,7 +63,7 @@ export function WhyThisMattersSection() {
                 <reason.icon className={`h-7 w-7 ${reason.textColor}`} />
               </div>
               <h3 className={`font-heading text-xl font-bold ${reason.textColor}`}>{reason.title}</h3>
-              <p className={`mt-3 text-sm leading-relaxed ${reason.textColor} opacity-75`}>{reason.text}</p>
+              <p className={`mt-3 text-sm leading-relaxed ${reason.textColor}`}>{reason.text}</p>
             </motion.div>
           ))}
         </div>

@@ -131,8 +131,8 @@ const About = () => {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={aboutHeroBg} alt="" className="h-full w-full object-cover scale-105" />
-          <div className="absolute inset-0 bg-background/70 dark:bg-background/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         </div>
         <div className="container relative mx-auto px-6 py-32 lg:py-40">
           <motion.div className="mx-auto max-w-3xl text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
@@ -140,10 +140,10 @@ const About = () => {
             <h1 className="font-heading text-5xl font-extrabold text-white sm:text-6xl lg:text-7xl drop-shadow-lg">
               Youth <span className="text-gradient-amber">Resourcefulness Ecosystem</span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-white/85">
+            <p className="mt-6 text-lg leading-relaxed text-white/90">
               We <strong className="text-white">Train</strong> through Aliko Academy, <strong className="text-white">Guide</strong> through Aliko Consultancy, <strong className="text-white">Connect</strong> through Aliko Events, and <strong className="text-white">Scale</strong> through our partners' support.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-white/75">
+            <p className="mt-4 text-lg leading-relaxed text-white/80">
               Rooted in dignity, compassion, and systems thinking, AlikoHub brings together education, innovation, employment pathways, and partnerships to enable young people to thrive as contributors, leaders, and problem solvers. Established in 2025 as a sister company to Genshifter Technologies, we operate at the intersection of Digital Health, One Health, STEM, and entrepreneurship.
             </p>
           </motion.div>
@@ -171,7 +171,7 @@ const About = () => {
                   <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-xl ${color.iconBg}`}>
                     <item.icon className={`h-6 w-6 ${color.text}`} />
                   </div>
-                  <p className={`text-sm leading-relaxed ${color.text} opacity-80`}>{item.text}</p>
+                  <p className={`text-sm leading-relaxed ${color.text}`}>{item.text}</p>
                 </motion.div>
               );
             })}
@@ -200,7 +200,7 @@ const About = () => {
                   <item.icon className={`h-7 w-7 ${item.color.text}`} />
                 </div>
                 <h3 className={`font-heading text-xl font-bold ${item.color.text} mb-2`}>{item.title}</h3>
-                <p className={`text-sm leading-relaxed ${item.color.text} opacity-75`}>{item.description}</p>
+                <p className={`text-sm leading-relaxed ${item.color.text}`}>{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -226,17 +226,17 @@ const About = () => {
                     <pillar.icon className={`h-6 w-6 ${color.text}`} />
                   </div>
                   <h3 className={`font-heading text-xl font-bold ${color.text}`}>{pillar.title}</h3>
-                  <p className={`mt-2 text-sm leading-relaxed ${color.text} opacity-75`}>{pillar.description}</p>
+                  <p className={`mt-2 text-sm leading-relaxed ${color.text}`}>{pillar.description}</p>
                   <ul className="mt-4 space-y-1.5">
                     {pillar.bullets.map((b, j) => (
-                      <li key={j} className={`flex items-start gap-2 text-xs ${color.text} opacity-70`}>
+                      <li key={j} className={`flex items-start gap-2 text-xs ${color.text}`}>
                         <span className={`mt-1 h-1.5 w-1.5 shrink-0 rounded-full ${color.iconBg}`} />
                         {b}
                       </li>
                     ))}
                   </ul>
                   {pillar.link && (
-                    <a href={pillar.link} target="_blank" rel="noopener noreferrer" className={`mt-4 inline-flex items-center gap-1.5 text-xs font-semibold ${color.text} opacity-80 hover:opacity-100 transition-opacity`}>
+                    <a href={pillar.link} target="_blank" rel="noopener noreferrer" className={`mt-4 inline-flex items-center gap-1.5 text-xs font-semibold ${color.text} hover:opacity-80 transition-opacity`}>
                       Visit {pillar.title} <ArrowRight className="h-3.5 w-3.5" />
                     </a>
                   )}
@@ -274,7 +274,7 @@ const About = () => {
                   <h3 className={`font-heading text-lg font-bold ${color.text} mb-3`}>{phase.title}</h3>
                   <ul className="space-y-1.5">
                     {phase.items.map((item, j) => (
-                      <li key={j} className={`flex items-start gap-2 text-sm ${color.text} opacity-75`}>
+                      <li key={j} className={`flex items-start gap-2 text-sm ${color.text}`}>
                         <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${color.iconBg}`} />
                         {item}
                       </li>
@@ -311,7 +311,7 @@ const About = () => {
                         <cat.icon className={`h-5 w-5 ${color.text}`} />
                       </div>
                       <h3 className={`font-heading text-sm font-semibold ${color.text}`}>{cat.title}</h3>
-                      <p className={`mt-1 text-xs leading-relaxed ${color.text} opacity-75`}>{cat.text}</p>
+                      <p className={`mt-1 text-xs leading-relaxed ${color.text}`}>{cat.text}</p>
                     </motion.div>
                   );
                 })}
@@ -382,7 +382,7 @@ const About = () => {
         <div className="container mx-auto px-6">
           <motion.div className="rounded-3xl bg-[hsl(40,85%,75%)] p-12 lg:p-16 text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="font-heading text-3xl font-bold text-[hsl(30,70%,20%)] sm:text-4xl">Ready to Partner?</h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-[hsl(30,70%,20%)] opacity-80">Join us in building Africa's largest youth empowerment ecosystem.</p>
+            <p className="mx-auto mt-4 max-w-xl text-lg text-[hsl(30,70%,20%)]">Join us in building Africa's largest youth empowerment ecosystem.</p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button size="lg" className="group bg-primary px-8 text-primary-foreground shadow-[var(--shadow-amber)] hover:bg-amber-light" asChild>
                 <a href="mailto:info@alikohub.com">Contact Us <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" /></a>

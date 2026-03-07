@@ -100,7 +100,7 @@ export function MissionSection() {
                 <h3 className={`font-heading text-xl md:text-2xl font-extrabold ${card.textColor} mb-3 leading-tight`}>
                   {card.title}
                 </h3>
-                <p className={`text-sm md:text-base leading-relaxed ${card.textColor} opacity-80`}>
+                <p className={`text-sm md:text-base leading-relaxed ${card.textColor}`}>
                   {card.text}
                 </p>
               </div>
