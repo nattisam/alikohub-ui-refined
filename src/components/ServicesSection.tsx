@@ -86,7 +86,7 @@ export function ServicesSection() {
   const displayServices = [...services, ...services];
 
   return (
-    <section id="ventures" className="relative py-24 lg:py-32">
+    <section id="ventures" className="relative py-24 lg:py-32 bg-[hsl(204,60%,92%)] dark:bg-transparent">
       <div className="container mx-auto px-6">
         <motion.div
           className="mx-auto mb-16 max-w-2xl text-center"

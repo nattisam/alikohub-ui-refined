@@ -21,12 +21,12 @@ export function HeroSection() {
           transition={{ duration: 0.7 }}
         >
           <motion.div
-            className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary"
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-sky/30 bg-sky/15 px-5 py-2 text-base font-semibold text-sky dark:text-sky-light"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
           >
-            <Sparkles className="h-4 w-4" />
+            <Sparkles className="h-5 w-5" />
             Youth Empowerment Ecosystem
           </motion.div>
 
