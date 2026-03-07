@@ -21,7 +21,7 @@ const responses = [
 
 export function ChallengesResponseSection() {
   return (
-    <section className="py-24 lg:py-32 bg-card/30">
+    <section className="py-24 lg:py-32 bg-muted dark:bg-card/30">
       <div className="container mx-auto px-6">
         <motion.div
           className="mx-auto mb-14 max-w-3xl text-center"

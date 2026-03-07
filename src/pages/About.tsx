@@ -109,10 +109,10 @@ function HorizontalScroller({ children }: { children: React.ReactNode }) {
   };
   return (
     <div className="relative">
-      <button onClick={() => scroll("left")} className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 border border-border/50 text-foreground backdrop-blur-sm hover:bg-primary/20" aria-label="Scroll left">
+      <button onClick={() => scroll("left")} className="absolute -left-4 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card border border-border text-foreground hover:bg-primary/20" aria-label="Scroll left">
         <ChevronLeft className="h-5 w-5" />
       </button>
-      <button onClick={() => scroll("right")} className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card/80 border border-border/50 text-foreground backdrop-blur-sm hover:bg-primary/20" aria-label="Scroll right">
+      <button onClick={() => scroll("right")} className="absolute -right-4 top-1/2 z-10 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card border border-border text-foreground hover:bg-primary/20" aria-label="Scroll right">
         <ChevronRight className="h-5 w-5" />
       </button>
       <div ref={ref} className="flex gap-5 overflow-x-auto scroll-smooth pb-4 scrollbar-hide" style={{ scrollbarWidth: "none" }}>
@@ -131,12 +131,12 @@ const About = () => {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={aboutHeroBg} alt="" className="h-full w-full object-cover scale-105" />
-          <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          <div className="absolute inset-0 bg-background/70 dark:bg-background/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
         </div>
         <div className="container relative mx-auto px-6 py-32 lg:py-40">
           <motion.div className="mx-auto max-w-3xl text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <span className="mb-4 inline-block rounded-full border border-white/30 bg-white/10 px-5 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-white backdrop-blur-md shadow-lg">Who We Are</span>
+            <span className="mb-4 inline-block rounded-full border border-white/30 bg-white/10 px-5 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-white shadow-lg">Who We Are</span>
             <h1 className="font-heading text-5xl font-extrabold text-white sm:text-6xl lg:text-7xl drop-shadow-lg">
               Youth <span className="text-gradient-amber">Resourcefulness Ecosystem</span>
             </h1>
@@ -154,7 +154,7 @@ const About = () => {
       <MissionSection />
 
       {/* 3. What Makes Us Different - Horizontal scroll */}
-      <section className="py-20 lg:py-28 bg-card/50">
+      <section className="py-20 lg:py-28 bg-muted dark:bg-card/50">
         <div className="container mx-auto px-6">
           <motion.div className="mx-auto mb-12 max-w-2xl text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">Our Approach</span>
@@ -208,7 +208,7 @@ const About = () => {
       </section>
 
       {/* 5. Programs / 4 Pillars - Horizontal scroll */}
-      <section className="py-20 lg:py-28 bg-card/50">
+      <section className="py-20 lg:py-28 bg-muted dark:bg-card/50">
         <div className="container mx-auto px-6">
           <motion.div className="mx-auto mb-12 max-w-2xl text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="mb-3 inline-block text-sm font-semibold uppercase tracking-widest text-primary">Our Main Pillars</span>
@@ -291,7 +291,7 @@ const About = () => {
       <TeamSection />
 
       {/* 8. Partners & Governance - Side by side */}
-      <section className="py-20 lg:py-28 bg-card/50">
+      <section className="py-20 lg:py-28 bg-muted dark:bg-card/50">
         <div className="container mx-auto px-6">
           <div className="grid gap-12 lg:grid-cols-2">
             {/* Partners */}

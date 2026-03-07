@@ -82,7 +82,7 @@ const Impact = () => {
       </section>
 
       {/* Output KPIs */}
-      <section className="py-24 lg:py-32 bg-card/50">
+      <section className="py-24 lg:py-32 bg-muted dark:bg-card/50">
         <div className="container mx-auto px-6">
           <motion.div
             className="mx-auto mb-16 max-w-2xl text-center"

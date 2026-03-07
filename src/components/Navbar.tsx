@@ -22,7 +22,7 @@ export function Navbar() {
   return (
     <>
       {/* Top bar */}
-      <div className="border-b border-border/50 bg-card/50 backdrop-blur-sm">
+      <div className="border-b border-border/50 bg-card/80 dark:bg-card/50 backdrop-blur-sm">
         <div className="container mx-auto flex items-center justify-between px-6 py-2 text-sm text-muted-foreground">
           <div className="flex items-center gap-6">
             <a href="mailto:info@alikohub.com" className="flex items-center gap-1.5 hover:text-primary transition-colors">
@@ -42,7 +42,7 @@ export function Navbar() {
       </div>
 
       {/* Main nav */}
-      <nav className="sticky top-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
+      <nav className="sticky top-0 z-50 border-b border-border/50 bg-background/95 dark:bg-background/80 backdrop-blur-xl">
         <div className="container mx-auto flex items-center justify-between px-6 py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center">

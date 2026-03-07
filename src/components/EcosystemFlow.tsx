@@ -34,7 +34,7 @@ const steps = [
 
 export function EcosystemFlow() {
   return (
-    <section className="py-24 lg:py-32 bg-card/30">
+    <section className="py-24 lg:py-32 bg-muted dark:bg-card/30">
       <div className="container mx-auto px-6">
         <motion.div
           className="mx-auto mb-16 max-w-2xl text-center"
@@ -71,7 +71,7 @@ export function EcosystemFlow() {
 
               {/* Content */}
               <div className="relative z-10 p-6 text-center min-h-[260px] flex flex-col justify-end">
-                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/15 backdrop-blur-sm group-hover:bg-white/25 transition-colors">
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-white/15 group-hover:bg-white/25 transition-colors">
                   <step.icon className="h-7 w-7 text-white" />
                 </div>
                 <div className="inline-flex items-center gap-1 rounded-full bg-primary/80 px-3 py-1 text-xs font-bold text-primary-foreground mb-3 mx-auto">

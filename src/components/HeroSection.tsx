@@ -6,11 +6,11 @@ import heroImg from "@/assets/hero-student.png";
 export function HeroSection() {
   return (
     <section className="relative min-h-[90vh] overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
-      {/* Grid overlay */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-30" />
+      {/* Grid overlay - dark mode only */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 dark:opacity-30 hidden dark:block" />
 
-      {/* Glow effect */}
-      <div className="absolute inset-0" style={{ background: "var(--gradient-glow)" }} />
+      {/* Glow effect - dark mode only */}
+      <div className="absolute inset-0 hidden dark:block" style={{ background: "var(--gradient-glow)" }} />
 
       <div className="container relative mx-auto flex flex-col-reverse items-center gap-12 px-6 py-20 lg:flex-row lg:gap-16 lg:py-28">
         {/* Text */}
@@ -70,8 +70,8 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="relative mx-auto max-w-lg">
-            {/* Ambient glow behind image */}
-            <div className="absolute -inset-8 rounded-full bg-primary/10 blur-3xl animate-pulse-glow" />
+            {/* Ambient glow behind image - dark mode only */}
+            <div className="absolute -inset-8 rounded-full bg-primary/10 blur-3xl animate-pulse-glow hidden dark:block" />
             <img
               src={heroImg}
               alt="Happy student representing AlikoHub's mission"
