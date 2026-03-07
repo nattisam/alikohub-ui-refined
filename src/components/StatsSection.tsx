@@ -10,7 +10,7 @@ const stats = [
 
 export function StatsSection() {
   return (
-    <section id="impact" className="py-16 lg:py-20">
+    <section id="impact" className="py-16 lg:py-20 bg-[hsl(204,60%,92%)] dark:bg-transparent">
       <div className="container mx-auto px-6">
         <motion.div
           className="mx-auto mb-10 max-w-2xl text-center"
