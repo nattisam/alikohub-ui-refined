@@ -25,7 +25,7 @@ export function Navbar() {
       <div className="border-b border-border/50 bg-[hsl(var(--navbar-bg))] dark:bg-card/50 backdrop-blur-sm">
         <div className="container mx-auto flex items-center justify-between px-6 py-2 text-sm text-[hsl(var(--navbar-fg))] dark:text-muted-foreground">
           <div className="flex items-center gap-6">
-            <a href="mailto:info@alikohub.com" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+            <a href="mailto:info@alikohub.com" className="flex items-center gap-1.5 hover:text-primary transition-colors text-[hsl(var(--navbar-fg))] dark:text-muted-foreground">
               <Mail className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">info@alikohub.com</span>
             </a>
