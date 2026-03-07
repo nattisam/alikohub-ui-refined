@@ -311,7 +311,7 @@ const About = () => {
                         <cat.icon className={`h-5 w-5 ${color.text}`} />
                       </div>
                       <h3 className={`font-heading text-sm font-semibold ${color.text}`}>{cat.title}</h3>
-                      <p className={`mt-1 text-xs leading-relaxed ${color.text} opacity-75`}>{cat.text}</p>
+                      <p className={`mt-1 text-xs leading-relaxed ${color.text}`}>{cat.text}</p>
                     </motion.div>
                   );
                 })}
