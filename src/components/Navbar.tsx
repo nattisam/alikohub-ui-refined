@@ -139,7 +139,14 @@ export function Navbar() {
                     </Link>
                   )
                 )}
-                <div className="flex gap-3 pt-4 border-t border-border/50 mt-2">
+                <div className="flex gap-3 pt-4 border-t border-border/50 mt-2 items-center">
+                  <button
+                    onClick={toggleTheme}
+                    className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:text-foreground hover:bg-muted"
+                    aria-label="Toggle theme"
+                  >
+                    {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                  </button>
                   <Button variant="ghost" size="sm" className="flex-1">Login</Button>
                   <Button size="sm" className="flex-1 bg-primary text-primary-foreground">Sign Up</Button>
                 </div>
