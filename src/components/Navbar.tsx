@@ -96,7 +96,7 @@ export function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="lg:hidden text-foreground"
+            className="lg:hidden text-[hsl(var(--navbar-fg))]"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
