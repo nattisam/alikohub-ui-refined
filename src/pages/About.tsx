@@ -229,7 +229,7 @@ const About = () => {
                   <p className={`mt-2 text-sm leading-relaxed ${color.text}`}>{pillar.description}</p>
                   <ul className="mt-4 space-y-1.5">
                     {pillar.bullets.map((b, j) => (
-                      <li key={j} className={`flex items-start gap-2 text-xs ${color.text} opacity-70`}>
+                      <li key={j} className={`flex items-start gap-2 text-xs ${color.text}`}>
                         <span className={`mt-1 h-1.5 w-1.5 shrink-0 rounded-full ${color.iconBg}`} />
                         {b}
                       </li>
