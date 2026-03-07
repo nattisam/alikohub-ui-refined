@@ -131,8 +131,8 @@ const About = () => {
       <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={aboutHeroBg} alt="" className="h-full w-full object-cover scale-105" />
-          <div className="absolute inset-0 bg-background/70 dark:bg-background/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         </div>
         <div className="container relative mx-auto px-6 py-32 lg:py-40">
           <motion.div className="mx-auto max-w-3xl text-center" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
@@ -140,10 +140,10 @@ const About = () => {
             <h1 className="font-heading text-5xl font-extrabold text-white sm:text-6xl lg:text-7xl drop-shadow-lg">
               Youth <span className="text-gradient-amber">Resourcefulness Ecosystem</span>
             </h1>
-            <p className="mt-6 text-lg leading-relaxed text-white/85">
+            <p className="mt-6 text-lg leading-relaxed text-white/90">
               We <strong className="text-white">Train</strong> through Aliko Academy, <strong className="text-white">Guide</strong> through Aliko Consultancy, <strong className="text-white">Connect</strong> through Aliko Events, and <strong className="text-white">Scale</strong> through our partners' support.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-white/75">
+            <p className="mt-4 text-lg leading-relaxed text-white/80">
               Rooted in dignity, compassion, and systems thinking, AlikoHub brings together education, innovation, employment pathways, and partnerships to enable young people to thrive as contributors, leaders, and problem solvers. Established in 2025 as a sister company to Genshifter Technologies, we operate at the intersection of Digital Health, One Health, STEM, and entrepreneurship.
             </p>
           </motion.div>
