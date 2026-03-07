@@ -6,22 +6,22 @@
 
 @layer base {
   :root {
-    --background: 207 60% 85%;
+    --background: 0 0% 100%;
     --foreground: 215 28% 11%;
 
-    --card: 207 50% 90%;
+    --card: 0 0% 100%;
     --card-foreground: 215 28% 11%;
 
-    --popover: 207 50% 92%;
+    --popover: 0 0% 100%;
     --popover-foreground: 215 28% 11%;
 
-    --primary: 25 80% 38%;
+    --primary: 37 78% 56%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 207 40% 88%;
+    --secondary: 50 20% 95%;
     --secondary-foreground: 215 28% 11%;
 
-    --muted: 207 35% 88%;
+    --muted: 50 15% 95%;
     --muted-foreground: 215 16% 34%;
 
     --accent: 200 70% 55%;
@@ -30,16 +30,16 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 207 30% 75%;
-    --input: 207 30% 75%;
+    --border: 220 10% 88%;
+    --input: 220 10% 88%;
     --ring: 37 78% 56%;
 
     --radius: 0.75rem;
 
     /* Custom AlikoHub tokens */
     --navy: 220 40% 18%;
-    --navy-light: 207 60% 85%;
-    --navy-medium: 207 40% 88%;
+    --navy-light: 0 0% 100%;
+    --navy-medium: 50 15% 95%;
     --amber: 37 78% 56%;
     --amber-light: 37 85% 65%;
     --amber-glow: 37 90% 70%;
@@ -50,22 +50,22 @@
     --navbar-bg: 220 40% 18%;
     --navbar-fg: 210 30% 90%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(207 55% 83%) 0%, hsl(207 60% 80%) 50%, hsl(207 55% 85%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(50 20% 96%) 50%, hsl(0 0% 99%) 100%);
     --gradient-amber: linear-gradient(135deg, hsl(37 78% 56%) 0%, hsl(30 85% 50%) 100%);
-    --gradient-card: linear-gradient(160deg, hsl(207 50% 92%) 0%, hsl(207 45% 89%) 100%);
+    --gradient-card: linear-gradient(160deg, hsl(0 0% 100%) 0%, hsl(50 15% 97%) 100%);
     --gradient-glow: none;
 
-    --shadow-card: 0 2px 12px -2px hsl(220 20% 50% / 0.1);
-    --shadow-card-hover: 0 8px 30px -6px hsl(37 78% 56% / 0.15);
+    --shadow-card: 0 2px 12px -2px hsl(220 20% 50% / 0.08);
+    --shadow-card-hover: 0 8px 30px -6px hsl(37 78% 56% / 0.12);
     --shadow-amber: 0 4px 16px -4px hsl(37 78% 56% / 0.25);
 
-    --sidebar-background: 207 50% 90%;
+    --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 215 28% 11%;
     --sidebar-primary: 37 78% 56%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 207 40% 86%;
+    --sidebar-accent: 50 15% 93%;
     --sidebar-accent-foreground: 215 28% 11%;
-    --sidebar-border: 207 30% 78%;
+    --sidebar-border: 220 10% 88%;
     --sidebar-ring: 37 78% 56%;
   }
 
