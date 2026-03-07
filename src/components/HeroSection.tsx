@@ -52,7 +52,7 @@ export function HeroSection() {
             <Button
               size="lg"
               variant="outline"
-              className="border-border text-foreground hover:bg-secondary"
+              className="border-foreground/30 text-foreground hover:bg-secondary dark:border-border dark:text-white"
               onClick={() => {
                 document.getElementById("ventures")?.scrollIntoView({ behavior: "smooth" });
               }}
