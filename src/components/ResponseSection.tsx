@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { TrendingUp, Globe, Target, Handshake, HeartPulse, Rocket } from "lucide-react";
+import { cardColors } from "@/lib/card-colors";
 
 const responses = [
   {
@@ -59,38 +60,40 @@ export function ResponseSection() {
         </motion.div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {responses.map((item, i) => (
-            <motion.div
-              key={item.label}
-              className="group relative overflow-hidden rounded-2xl border border-primary/20 p-6 bg-card hover:border-primary/40 transition-all duration-300 hover:shadow-lg"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-            >
-              <div className="absolute top-0 right-0 h-24 w-24 rounded-bl-full bg-primary/5 group-hover:bg-primary/10 transition-colors" />
-              <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
-                    <item.icon className="h-5 w-5" />
+          {responses.map((item, i) => {
+            const color = cardColors[i % cardColors.length];
+            return (
+              <motion.div
+                key={item.label}
+                className={`group relative overflow-hidden rounded-2xl ${color.bg} p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg dark:bg-card dark:border dark:border-primary/20`}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+              >
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${color.iconBg} dark:bg-primary/10`}>
+                      <item.icon className={`h-5 w-5 ${color.text} dark:text-primary`} />
+                    </div>
+                    <motion.span
+                      className={`font-heading text-4xl font-bold ${color.text} dark:text-primary`}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.08 + 0.2, type: "spring" }}
+                    >
+                      {item.value}
+                    </motion.span>
                   </div>
-                  <motion.span
-                    className="font-heading text-4xl font-bold text-primary"
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.08 + 0.2, type: "spring" }}
-                  >
-                    {item.value}
-                  </motion.span>
+                  <h3 className={`font-heading text-sm font-semibold uppercase tracking-wide ${color.text} dark:text-foreground`}>
+                    {item.label}
+                  </h3>
+                  <p className={`mt-1 text-sm ${color.text} dark:text-muted-foreground`}>{item.description}</p>
                 </div>
-                <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-foreground">
-                  {item.label}
-                </h3>
-                <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

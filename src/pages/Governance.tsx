@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Crown, Settings, MapPin, GraduationCap, BarChart3, DollarSign, Users } from "lucide-react";
+import { cardColors } from "@/lib/card-colors";
 
 const levels = [
   { icon: Crown, title: "AlikoHub Global Leadership (HQ)", role: "Strategic Oversight", description: "Vision, strategy, donor engagement, global partnerships, quality assurance" },
@@ -39,31 +40,34 @@ const Governance = () => {
 
           {/* Flow chart */}
           <div className="mx-auto max-w-2xl space-y-4">
-            {levels.map((level, i) => (
-              <motion.div
-                key={level.title}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className="group flex items-start gap-4 rounded-2xl border border-border/50 p-5 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)]" style={{ background: "var(--gradient-card)" }}>
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                    <level.icon className="h-6 w-6 text-primary" />
+            {levels.map((level, i) => {
+              const color = cardColors[i % cardColors.length];
+              return (
+                <motion.div
+                  key={level.title}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                >
+                  <div className={`group flex items-start gap-4 rounded-2xl ${color.bg} p-5 transition-all duration-300 hover:scale-[1.02] hover:shadow-md dark:bg-card dark:border dark:border-border/50`}>
+                    <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${color.iconBg} dark:bg-primary/10`}>
+                      <level.icon className={`h-6 w-6 ${color.text} dark:text-primary`} />
+                    </div>
+                    <div>
+                      <h3 className={`font-heading text-base font-bold ${color.text} dark:text-foreground`}>{level.title}</h3>
+                      <span className={`inline-block rounded-full ${color.iconBg} px-2.5 py-0.5 text-xs font-semibold ${color.text} mt-1 mb-2 dark:bg-primary/10 dark:text-primary`}>
+                        {level.role}
+                      </span>
+                      <p className={`text-sm ${color.text} dark:text-muted-foreground`}>{level.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-heading text-base font-bold text-foreground">{level.title}</h3>
-                    <span className="inline-block rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary mt-1 mb-2">
-                      {level.role}
-                    </span>
-                    <p className="text-sm text-muted-foreground">{level.description}</p>
-                  </div>
-                </div>
-                {i < levels.length - 1 && (
-                  <div className="ml-[1.75rem] h-4 w-px bg-primary/30" />
-                )}
-              </motion.div>
-            ))}
+                  {i < levels.length - 1 && (
+                    <div className="ml-[1.75rem] h-4 w-px bg-primary/30" />
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

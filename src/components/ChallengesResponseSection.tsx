@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { GraduationCap, MapPin, Users, AlertTriangle, Leaf, Briefcase, TrendingUp, Globe, Target, Handshake, HeartPulse, Rocket } from "lucide-react";
+import { cardColors } from "@/lib/card-colors";
 
 const challenges = [
   { icon: GraduationCap, title: "Education to Labor Disconnect", summary: "Graduates lack practical experience for job markets." },
@@ -21,7 +22,7 @@ const responses = [
 
 export function ChallengesResponseSection() {
   return (
-    <section className="py-24 lg:py-32 bg-muted dark:bg-card/30">
+    <section className="py-24 lg:py-32 bg-muted/50 dark:bg-card/30">
       <div className="container mx-auto px-6">
         <motion.div
           className="mx-auto mb-14 max-w-3xl text-center"
@@ -44,24 +45,27 @@ export function ChallengesResponseSection() {
               Systemic Challenges
             </h3>
             <div className="grid gap-3 sm:grid-cols-2">
-              {challenges.map((c, i) => (
-                <motion.div
-                  key={c.title}
-                  className="flex items-start gap-3 rounded-xl border border-primary/15 bg-primary/5 p-4"
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/15 text-primary">
-                    <c.icon className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <h4 className="font-heading text-sm font-bold text-foreground">{c.title}</h4>
-                    <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">{c.summary}</p>
-                  </div>
-                </motion.div>
-              ))}
+              {challenges.map((c, i) => {
+                const color = cardColors[i % cardColors.length];
+                return (
+                  <motion.div
+                    key={c.title}
+                    className={`flex items-start gap-3 rounded-xl ${color.bg} p-4 dark:bg-card dark:border dark:border-border/50`}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${color.iconBg} dark:bg-primary/15`}>
+                      <c.icon className={`h-4 w-4 ${color.text} dark:text-primary`} />
+                    </div>
+                    <div>
+                      <h4 className={`font-heading text-sm font-bold ${color.text} dark:text-foreground`}>{c.title}</h4>
+                      <p className={`mt-0.5 text-xs leading-relaxed ${color.text} dark:text-muted-foreground`}>{c.summary}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 
@@ -71,33 +75,36 @@ export function ChallengesResponseSection() {
               Our Response
             </h3>
             <div className="grid gap-3 sm:grid-cols-2">
-              {responses.map((r, i) => (
-                <motion.div
-                  key={r.label}
-                  className="group relative overflow-hidden rounded-xl border border-primary/20 bg-card p-4 hover:border-primary/40 transition-all duration-300"
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                      <r.icon className="h-4 w-4" />
+              {responses.map((r, i) => {
+                const color = cardColors[i % cardColors.length];
+                return (
+                  <motion.div
+                    key={r.label}
+                    className={`group relative overflow-hidden rounded-xl ${color.bg} p-4 transition-all duration-300 hover:scale-[1.02] dark:bg-card dark:border dark:border-border/50`}
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className={`flex h-9 w-9 items-center justify-center rounded-lg ${color.iconBg} dark:bg-primary/10`}>
+                        <r.icon className={`h-4 w-4 ${color.text} dark:text-primary`} />
+                      </div>
+                      <motion.span
+                        className={`font-heading text-2xl font-bold ${color.text} dark:text-primary`}
+                        initial={{ opacity: 0, x: -8 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.05 + 0.2, type: "spring" }}
+                      >
+                        {r.value}
+                      </motion.span>
                     </div>
-                    <motion.span
-                      className="font-heading text-2xl font-bold text-primary"
-                      initial={{ opacity: 0, x: -8 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.05 + 0.2, type: "spring" }}
-                    >
-                      {r.value}
-                    </motion.span>
-                  </div>
-                  <h4 className="font-heading text-xs font-semibold uppercase tracking-wide text-foreground">{r.label}</h4>
-                  <p className="mt-0.5 text-xs text-muted-foreground">{r.desc}</p>
-                </motion.div>
-              ))}
+                    <h4 className={`font-heading text-xs font-semibold uppercase tracking-wide ${color.text} dark:text-foreground`}>{r.label}</h4>
+                    <p className={`mt-0.5 text-xs ${color.text} dark:text-muted-foreground`}>{r.desc}</p>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </div>

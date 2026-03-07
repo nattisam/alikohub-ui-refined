@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { GraduationCap, Heart, Cpu, Briefcase, Droplets } from "lucide-react";
+import { cardColors } from "@/lib/card-colors";
 
 const pillars = [
   {
@@ -87,39 +88,41 @@ const Programs = () => {
           </motion.div>
 
           <div className="grid gap-8 lg:grid-cols-2">
-            {pillars.map((pillar, i) => (
-              <motion.div
-                key={pillar.title}
-                className="group rounded-2xl border border-border/50 p-8 transition-all duration-300 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)] hover:scale-[1.02]"
-                style={{ background: "var(--gradient-card)" }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <pillar.icon className="h-7 w-7 text-primary" />
-                </div>
-                <h3 className="font-heading text-2xl font-bold text-foreground">{pillar.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pillar.description}</p>
-                <ul className="mt-5 space-y-2">
-                  {pillar.bullets.map((b, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={(pillar as any).link || "#"}
-                  target={(pillar as any).link ? "_blank" : undefined}
-                  rel={(pillar as any).link ? "noopener noreferrer" : undefined}
-                  className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary hover:gap-2 transition-all"
+            {pillars.map((pillar, i) => {
+              const color = cardColors[i % cardColors.length];
+              return (
+                <motion.div
+                  key={pillar.title}
+                  className={`group rounded-2xl ${color.bg} p-8 transition-all duration-300 hover:scale-[1.02] hover:shadow-lg dark:bg-card dark:border dark:border-border/50`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
                 >
-                  {(pillar as any).link ? "View Website →" : "Learn More →"}
-                </a>
-              </motion.div>
-            ))}
+                  <div className={`mb-4 flex h-14 w-14 items-center justify-center rounded-xl ${color.iconBg} dark:bg-primary/10`}>
+                    <pillar.icon className={`h-7 w-7 ${color.text} dark:text-primary`} />
+                  </div>
+                  <h3 className={`font-heading text-2xl font-bold ${color.text} dark:text-foreground`}>{pillar.title}</h3>
+                  <p className={`mt-3 text-sm leading-relaxed ${color.text} dark:text-muted-foreground`}>{pillar.description}</p>
+                  <ul className="mt-5 space-y-2">
+                    {pillar.bullets.map((b, j) => (
+                      <li key={j} className={`flex items-start gap-2 text-sm ${color.text} dark:text-muted-foreground`}>
+                        <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${color.iconBg} dark:bg-primary`} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={(pillar as any).link || "#"}
+                    target={(pillar as any).link ? "_blank" : undefined}
+                    rel={(pillar as any).link ? "noopener noreferrer" : undefined}
+                    className={`mt-6 inline-flex items-center gap-1 text-sm font-medium ${color.text} dark:text-primary hover:opacity-80 transition-opacity`}
+                  >
+                    {(pillar as any).link ? "View Website →" : "Learn More →"}
+                  </a>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
