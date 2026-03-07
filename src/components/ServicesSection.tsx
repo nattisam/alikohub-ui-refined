@@ -49,7 +49,7 @@ const services = [
 
 function ServiceCard({ service }: { service: typeof services[number] }) {
   return (
-    <div className="group relative w-[260px] sm:w-[300px] shrink-0 overflow-hidden rounded-2xl border border-border/50 bg-card transition-all duration-500 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)]">
+    <div className="group relative w-[260px] sm:w-[300px] shrink-0 overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/30 hover:shadow-[var(--shadow-card-hover)]">
       <div className="relative h-48 overflow-hidden">
         <img
           src={service.image}
@@ -57,8 +57,8 @@ function ServiceCard({ service }: { service: typeof services[number] }) {
           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           loading="lazy"
         />
-        <div className={`absolute inset-0 ${(service as any).darkOverlay ? 'bg-gradient-to-t from-card via-card/70 to-card/40' : 'bg-gradient-to-t from-card via-card/50 to-transparent'}`} />
-        <div className="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20 backdrop-blur-sm">
+        <div className={`absolute inset-0 ${(service as any).darkOverlay ? 'bg-gradient-to-t from-card via-card/80 to-card/50' : 'bg-gradient-to-t from-card via-card/60 to-transparent'}`} />
+        <div className="absolute bottom-4 left-4 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20">
           <service.icon className="h-5 w-5 text-primary" />
         </div>
       </div>
