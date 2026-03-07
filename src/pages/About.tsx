@@ -226,7 +226,7 @@ const About = () => {
                     <pillar.icon className={`h-6 w-6 ${color.text}`} />
                   </div>
                   <h3 className={`font-heading text-xl font-bold ${color.text}`}>{pillar.title}</h3>
-                  <p className={`mt-2 text-sm leading-relaxed ${color.text} opacity-75`}>{pillar.description}</p>
+                  <p className={`mt-2 text-sm leading-relaxed ${color.text}`}>{pillar.description}</p>
                   <ul className="mt-4 space-y-1.5">
                     {pillar.bullets.map((b, j) => (
                       <li key={j} className={`flex items-start gap-2 text-xs ${color.text} opacity-70`}>
