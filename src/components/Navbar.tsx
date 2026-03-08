@@ -94,13 +94,15 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden items-center gap-3 lg:flex">
-            <button
+            <Button
+              variant="outline"
+              size="sm"
               onClick={toggleTheme}
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-[hsl(var(--navbar-fg))] transition-colors hover:text-primary"
-              aria-label="Toggle theme"
+              className="text-[hsl(var(--navbar-fg))] border-[hsl(var(--navbar-fg))]/30 hover:bg-[hsl(var(--navbar-fg))]/10"
             >
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-            </button>
+              {theme === "dark" ? <Sun className="h-4 w-4 mr-2" /> : <Moon className="h-4 w-4 mr-2" />}
+              {theme === "dark" ? "Light Mode" : "Dark Mode"}
+            </Button>
             
             {user ? (
               <DropdownMenu>
