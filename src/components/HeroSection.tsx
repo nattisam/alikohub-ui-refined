@@ -1,9 +1,29 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 import heroImg from "@/assets/hero-student.png";
 
 export function HeroSection() {
+  const { data: heroContent } = useQuery({
+    queryKey: ["hero-content"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("hero_content")
+        .select("*")
+        .eq("is_active", true)
+        .maybeSingle();
+      if (error) throw error;
+      return data;
+    },
+  });
+
+  const title = heroContent?.title || "Honoring Youth Potential Where Opportunity Meets Dignity";
+  const subtitle = heroContent?.subtitle || "Building Africa's largest youth resourcefulness ecosystem in Digital Health, One Health, STEM, and Innovation, reaching 50,000 youth across 10 regional hubs.";
+  const ctaPrimaryText = heroContent?.cta_primary_text || "Partner With Us";
+  const ctaSecondaryText = heroContent?.cta_secondary_text || "View Our Ventures";
+
   return (
     <section className="relative min-h-[90vh] overflow-hidden" style={{ background: "var(--gradient-hero)" }}>
       {/* Grid overlay - dark mode only */}
@@ -31,32 +51,46 @@ export function HeroSection() {
           </motion.div>
 
           <h1 className="font-heading text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">
-            Honoring Youth Potential Where Opportunity Meets{" "}
-            <span className="text-gradient-amber">Dignity</span>
+            {title.includes("Dignity") ? (
+              <>
+                {title.split("Dignity")[0]}
+                <span className="text-gradient-amber">Dignity</span>
+                {title.split("Dignity")[1]}
+              </>
+            ) : (
+              title
+            )}
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground lg:mx-0">
-            Building Africa's largest youth resourcefulness ecosystem in Digital
-            Health, One Health, STEM, and Innovation, reaching 50,000 youth
-            across 10 regional hubs.
+            {subtitle}
           </p>
 
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
             <Button
               size="lg"
               className="group bg-primary px-8 text-primary-foreground shadow-[var(--shadow-amber)] hover:bg-amber-light"
+              onClick={() => {
+                if (heroContent?.cta_primary_link) {
+                  window.location.href = heroContent.cta_primary_link;
+                }
+              }}
             >
-              Partner With Us
+              {ctaPrimaryText}
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button
               size="lg"
               className="bg-navy text-white px-8 hover:bg-navy/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
               onClick={() => {
-                document.getElementById("ventures")?.scrollIntoView({ behavior: "smooth" });
+                if (heroContent?.cta_secondary_link) {
+                  window.location.href = heroContent.cta_secondary_link;
+                } else {
+                  document.getElementById("ventures")?.scrollIntoView({ behavior: "smooth" });
+                }
               }}
             >
-              View Our Ventures
+              {ctaSecondaryText}
             </Button>
           </div>
         </motion.div>
@@ -72,7 +106,7 @@ export function HeroSection() {
             {/* Ambient glow behind image - dark mode only */}
             <div className="absolute -inset-8 rounded-full bg-primary/10 blur-3xl animate-pulse-glow hidden dark:block" />
             <img
-              src={heroImg}
+              src={heroContent?.background_image_url || heroImg}
               alt="Happy student representing AlikoHub's mission"
               className="relative z-10 w-full drop-shadow-2xl"
               loading="eager"
