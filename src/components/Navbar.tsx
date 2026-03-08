@@ -1,9 +1,17 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, Globe, Menu, X, ExternalLink, Sun, Moon } from "lucide-react";
+import { Mail, Phone, Globe, Menu, X, ExternalLink, Sun, Moon, User, LogOut, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
+import { useAuth } from "@/hooks/useAuth";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import alikohubLogo from "@/assets/alikohub-logo.png";
 
 const navLinks = [
@@ -17,7 +25,14 @@ const navLinks = [
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
+  const { user, isAdmin, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate("/");
+  };
 
   return (
     <>
@@ -86,12 +101,41 @@ export function Navbar() {
             >
               {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
-            <Button variant="ghost" size="sm" className="text-[hsl(var(--navbar-fg))] hover:text-primary">
-              Login
-            </Button>
-            <Button size="sm" className="bg-primary text-primary-foreground hover:bg-amber-light shadow-[var(--shadow-amber)]">
-              Sign Up
-            </Button>
+            
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="text-[hsl(var(--navbar-fg))] hover:text-primary">
+                    <User className="h-4 w-4 mr-2" />
+                    Account
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  {isAdmin && (
+                    <>
+                      <DropdownMenuItem onClick={() => navigate("/admin")}>
+                        <Settings className="h-4 w-4 mr-2" />
+                        Admin Dashboard
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                    </>
+                  )}
+                  <DropdownMenuItem onClick={handleSignOut}>
+                    <LogOut className="h-4 w-4 mr-2" />
+                    Sign Out
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <>
+                <Button variant="ghost" size="sm" className="text-[hsl(var(--navbar-fg))] hover:text-primary" asChild>
+                  <Link to="/login">Login</Link>
+                </Button>
+                <Button size="sm" className="bg-primary text-primary-foreground hover:bg-amber-light shadow-[var(--shadow-amber)]" asChild>
+                  <Link to="/signup">Sign Up</Link>
+                </Button>
+              </>
+            )}
           </div>
 
           {/* Mobile toggle */}
@@ -139,16 +183,46 @@ export function Navbar() {
                     </Link>
                   )
                 )}
-                <div className="flex gap-3 pt-4 border-t border-white/10 mt-2 items-center">
+                <div className="flex flex-col gap-2 pt-4 border-t border-white/10 mt-2">
                   <button
                     onClick={toggleTheme}
-                    className="flex h-9 w-9 items-center justify-center rounded-lg text-[hsl(var(--navbar-fg))] transition-colors hover:text-primary"
+                    className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold text-[hsl(var(--navbar-fg))] hover:text-primary transition-colors"
                     aria-label="Toggle theme"
                   >
                     {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                    {theme === "dark" ? "Light Mode" : "Dark Mode"}
                   </button>
-                  <Button variant="ghost" size="sm" className="flex-1 text-[hsl(var(--navbar-fg))]">Login</Button>
-                  <Button size="sm" className="flex-1 bg-primary text-primary-foreground">Sign Up</Button>
+                  
+                  {user ? (
+                    <>
+                      {isAdmin && (
+                        <Link
+                          to="/admin"
+                          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold text-[hsl(var(--navbar-fg))] hover:text-primary transition-colors"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          <Settings className="h-4 w-4" />
+                          Admin Dashboard
+                        </Link>
+                      )}
+                      <button
+                        onClick={() => { handleSignOut(); setMobileOpen(false); }}
+                        className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-sm font-semibold text-[hsl(var(--navbar-fg))] hover:text-primary transition-colors"
+                      >
+                        <LogOut className="h-4 w-4" />
+                        Sign Out
+                      </button>
+                    </>
+                  ) : (
+                    <div className="flex gap-3">
+                      <Button variant="ghost" size="sm" className="flex-1 text-[hsl(var(--navbar-fg))]" asChild>
+                        <Link to="/login" onClick={() => setMobileOpen(false)}>Login</Link>
+                      </Button>
+                      <Button size="sm" className="flex-1 bg-primary text-primary-foreground" asChild>
+                        <Link to="/signup" onClick={() => setMobileOpen(false)}>Sign Up</Link>
+                      </Button>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>
