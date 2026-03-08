@@ -98,7 +98,7 @@ export function Navbar() {
               variant="outline"
               size="sm"
               onClick={toggleTheme}
-              className="text-[hsl(var(--navbar-fg))] border-[hsl(var(--navbar-fg))]/30 hover:bg-[hsl(var(--navbar-fg))]/10"
+              className="text-navy dark:text-white border-navy/40 dark:border-white/30 hover:bg-navy/10 dark:hover:bg-white/10 font-semibold"
             >
               {theme === "dark" ? <Sun className="h-4 w-4 mr-2" /> : <Moon className="h-4 w-4 mr-2" />}
               {theme === "dark" ? "Light Mode" : "Dark Mode"}
