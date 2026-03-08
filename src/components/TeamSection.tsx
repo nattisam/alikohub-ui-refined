@@ -1,17 +1,34 @@
 import { motion } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
 import team1 from "@/assets/team-1.png";
 import team2 from "@/assets/team-2.png";
 import team3 from "@/assets/team-3.png";
 import team4 from "@/assets/team-4.png";
 
-const team = [
-  { name: "Team Member", role: "Leadership", image: team1 },
-  { name: "Team Member", role: "Operations", image: team2 },
-  { name: "Team Member", role: "Technology", image: team3 },
-  { name: "Team Member", role: "Strategy", image: team4 },
+const fallbackTeam = [
+  { name: "Team Member", role: "Leadership", image_url: team1 },
+  { name: "Team Member", role: "Operations", image_url: team2 },
+  { name: "Team Member", role: "Technology", image_url: team3 },
+  { name: "Team Member", role: "Strategy", image_url: team4 },
 ];
 
 export function TeamSection() {
+  const { data: teamMembers } = useQuery({
+    queryKey: ["team-members"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("team_members")
+        .select("*")
+        .eq("is_active", true)
+        .order("display_order", { ascending: true });
+      if (error) throw error;
+      return data;
+    },
+  });
+
+  const team = teamMembers && teamMembers.length > 0 ? teamMembers : fallbackTeam;
+
   return (
     <section className="py-24 lg:py-32">
       <div className="container mx-auto px-6">
@@ -44,7 +61,7 @@ export function TeamSection() {
             >
               <div className="relative h-72 overflow-hidden">
                 <img
-                  src={member.image}
+                  src={member.image_url || fallbackTeam[i % fallbackTeam.length].image_url}
                   alt={member.name}
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
