@@ -126,7 +126,7 @@ export default function AdminHero() {
         fetchHeroes();
       }
     } else {
-      const { error } = await supabase.from("hero_content").insert([data]);
+      const { error } = await supabase.from("hero_content").insert([{ ...data, title: data.title }]);
 
       if (error) {
         toast({ title: "Error", description: error.message, variant: "destructive" });

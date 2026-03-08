@@ -116,7 +116,7 @@ export default function AdminPrograms() {
         fetchPrograms();
       }
     } else {
-      const { error } = await supabase.from("programs").insert([data]);
+      const { error } = await supabase.from("programs").insert([{ ...data, title: data.title }]);
 
       if (error) {
         toast({ title: "Error", description: error.message, variant: "destructive" });

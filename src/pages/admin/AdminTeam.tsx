@@ -126,7 +126,7 @@ export default function AdminTeam() {
         fetchMembers();
       }
     } else {
-      const { error } = await supabase.from("team_members").insert([data]);
+      const { error } = await supabase.from("team_members").insert([{ ...data, name: data.name }]);
 
       if (error) {
         toast({ title: "Error", description: error.message, variant: "destructive" });

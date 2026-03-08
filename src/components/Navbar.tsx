@@ -1,13 +1,26 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Phone, Globe, Menu, X, ExternalLink, Sun, Moon } from "lucide-react";
+import { Mail, Phone, Globe, Menu, X, ExternalLink, Sun, Moon, User, LogOut, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "@/components/ThemeProvider";
+import { useAuth } from "@/hooks/useAuth";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import alikohubLogo from "@/assets/alikohub-logo.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Ventures", href: "/programs" },
+  { label: "Partnership", href: "/partnership" },
+  { label: "Career", href: "https://career.alikohub.com/", external: true },
+];
   { label: "About", href: "/about" },
   { label: "Ventures", href: "/programs" },
   { label: "Partnership", href: "/partnership" },
