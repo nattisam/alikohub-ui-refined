@@ -148,7 +148,7 @@ export default function ResetPassword() {
             {isSuccess ? (
               <div className="text-center space-y-6">
                 <div className="flex justify-center">
-                  <CheckCircle className="h-16 w-16 text-green-500" />
+                  <CheckCircle className="h-16 w-16 text-primary" />
                 </div>
                 <p className="text-muted-foreground">
                   Your password has been successfully reset. Redirecting to login...
