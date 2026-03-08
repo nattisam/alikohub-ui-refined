@@ -116,7 +116,7 @@ export default function AdminServices() {
         fetchServices();
       }
     } else {
-      const { error } = await supabase.from("services").insert(data);
+      const { error } = await supabase.from("services").insert([data]);
 
       if (error) {
         toast({ title: "Error", description: error.message, variant: "destructive" });
